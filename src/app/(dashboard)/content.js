@@ -69,15 +69,14 @@ export const HomePageContent = function () {
       const fetchData = async () => {
         try {
 
-          console.log(process.env.HUGGING_FACE_API);
-          const hf = new HfInference(process.env.HUGGING_FACE_API);
+          const hf = new HfInference(process.env.NEXT_PUBLIC_HUGGING_FACE_API);
           const item = await hf.textToImage({
-            inputs: 'masterpiece, best quality, 1girl, green hair, sweater, looking at viewer, upper body, beanie, outdoors, watercolor, night, turtleneck',
+            inputs: 'masterpiece, best quality, 1girl, purple hair, sweater, looking at viewer, upper body, beanie, outdoors, watercolor, night, turtleneck',
             // model: 'stabilityai/stable-diffusion-2',
             model: 'hakurei/waifu-diffusion',
-            parameters: {
-              negative_prompt: 'blurry',
-            }
+            // parameters: {
+            //   negative_prompt: 'blurry',
+            // }
           })
           const img = URL.createObjectURL(item);
           setSrc(img); // after component is mount, src will change
