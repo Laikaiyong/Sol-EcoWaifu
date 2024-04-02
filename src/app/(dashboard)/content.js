@@ -58,10 +58,42 @@ import {
   HiViewBoards,
   HiX,
 } from "react-icons/hi";
+import { HfInference } from '@huggingface/inference'
+
 
 export const HomePageContent = function () {
+  const image = "/logo.png";
+    const [src, setSrc] = useState(''); // initial src will be empty
+
+    useEffect(() => {
+      const fetchData = async () => {
+        try {
+
+          console.log(process.env.HUGGING_FACE_API);
+          const hf = new HfInference(process.env.HUGGING_FACE_API);
+          const item = await hf.textToImage({
+            inputs: 'masterpiece, best quality, 1girl, green hair, sweater, looking at viewer, upper body, beanie, outdoors, watercolor, night, turtleneck',
+            // model: 'stabilityai/stable-diffusion-2',
+            model: 'hakurei/waifu-diffusion',
+            parameters: {
+              negative_prompt: 'blurry',
+            }
+          })
+          const img = URL.createObjectURL(item);
+          setSrc(img); // after component is mount, src will change
+        } catch (error) {
+          console.error('Error fetching data:', error);
+        }
+      };
+  
+      fetchData();
+    }, []);
+
   return (
     <div className="p-6">
+       <div>
+                <img src={src} />
+            </div>
       <section>
         <header>
           <h1 className="mb-6 text-5xl font-extrabold dark:text-white">
@@ -689,7 +721,7 @@ const NavbarsExample = function () {
         <Dropdown
           inline
           label={
-            <Avatar alt="User settings" img="/profile-picture-5.jpg" rounded />
+            <Avatar alt="User settings" img="/next.svg" rounded />
           }
         >
           <Dropdown.Header>
