@@ -1,5 +1,6 @@
 "use client";
 
+import { generateWaifuPic } from "../../services/huggingfaceservice";
 import {
   Accordion,
   Alert,
@@ -58,7 +59,6 @@ import {
   HiViewBoards,
   HiX,
 } from "react-icons/hi";
-import { HfInference } from '@huggingface/inference'
 
 
 export const HomePageContent = function () {
@@ -66,26 +66,7 @@ export const HomePageContent = function () {
     const [src, setSrc] = useState(''); // initial src will be empty
 
     useEffect(() => {
-      const fetchData = async () => {
-        try {
-
-          const hf = new HfInference(process.env.NEXT_PUBLIC_HUGGING_FACE_API);
-          const item = await hf.textToImage({
-            inputs: 'masterpiece, best quality, 1girl, purple hair, sweater, looking at viewer, upper body, beanie, outdoors, watercolor, night, turtleneck',
-            // model: 'stabilityai/stable-diffusion-2',
-            model: 'hakurei/waifu-diffusion',
-            // parameters: {
-            //   negative_prompt: 'blurry',
-            // }
-          })
-          const img = URL.createObjectURL(item);
-          setSrc(img); // after component is mount, src will change
-        } catch (error) {
-          console.error('Error fetching data:', error);
-        }
-      };
-  
-      fetchData();
+     generateWaifuPic(setSrc);
     }, []);
 
   return (

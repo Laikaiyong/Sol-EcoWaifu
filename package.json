@@ -1,5 +1,5 @@
 {
-  "name": "waifu-scam",
+  "name": "sol-ecowaifu",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -9,15 +9,24 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@huddle01/react": "^2.0.8",
+    "@huddle01/server-sdk": "^2.2.1",
     "@huggingface/agents": "^0.0.5",
     "@huggingface/hub": "^0.14.6",
     "@huggingface/inference": "^2.6.6",
     "@metaplex-foundation/js": "^0.20.1",
     "@reclaimprotocol/js-sdk": "^1.1.0",
+    "@solana-mobile/mobile-wallet-adapter-protocol-web3js": "^2.1.2",
+    "@solana/wallet-adapter-base": "^0.9.23",
+    "@solana/wallet-adapter-react": "^0.15.35",
+    "@solana/wallet-adapter-react-ui": "^0.9.35",
+    "@solana/wallet-adapter-wallets": "^0.19.32",
     "@solana/web3.js": "^1.91.2",
+    "cookies-next": "^4.1.1",
     "flowbite": "^2.3.0",
     "flowbite-react": "^0.7.6",
     "next": "14.1.4",
+    "pino-pretty": "^11.0.0",
     "react": "^18",
     "react-dom": "^18"
   },

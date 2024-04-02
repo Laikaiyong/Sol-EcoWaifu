@@ -3,13 +3,11 @@ import { useSidebarContext } from "../../context/sidebarcontext";
 import { Sidebar } from "flowbite-react";
 import { BiBuoy } from "react-icons/bi";
 import {
-  HiArrowSmRight,
+  HiStatusOnline,
+  HiSparkles,
   HiChartPie,
   HiInbox,
   HiShoppingBag,
-  HiTable,
-  HiUser,
-  HiViewBoards,
 } from "react-icons/hi";
 import { twMerge } from "tailwind-merge";
 
@@ -28,37 +26,20 @@ export const DashboardSidebar = function () {
     >
       <Sidebar.Items>
         <Sidebar.ItemGroup>
-          <Sidebar.Item href="#" icon={HiChartPie}>
-            Dashboard
+          <Sidebar.Item href="/" icon={HiChartPie}>
+            Home
           </Sidebar.Item>
-          <Sidebar.Item href="#" icon={HiViewBoards}>
-            Kanban
-          </Sidebar.Item>
-          <Sidebar.Item href="#" icon={HiInbox}>
-            Inbox
-          </Sidebar.Item>
-          <Sidebar.Item href="#" icon={HiUser}>
-            Users
-          </Sidebar.Item>
-          <Sidebar.Item href="#" icon={HiShoppingBag}>
+          <Sidebar.Item href="/products" icon={HiShoppingBag}>
             Products
           </Sidebar.Item>
-          <Sidebar.Item href="#" icon={HiArrowSmRight}>
-            Sign In
+          <Sidebar.Item href="/nft" icon={HiSparkles}>
+            NFTs
           </Sidebar.Item>
-          <Sidebar.Item href="#" icon={HiTable}>
-            Sign Up
+          <Sidebar.Item href="/transact" icon={HiInbox}>
+            Transactions
           </Sidebar.Item>
-        </Sidebar.ItemGroup>
-        <Sidebar.ItemGroup>
-          <Sidebar.Item href="#" icon={HiChartPie}>
-            Upgrade to Pro
-          </Sidebar.Item>
-          <Sidebar.Item href="#" icon={HiViewBoards}>
-            Documentation
-          </Sidebar.Item>
-          <Sidebar.Item href="#" icon={BiBuoy}>
-            Help
+          <Sidebar.Item href="/livestream" icon={HiStatusOnline}>
+            Livestream
           </Sidebar.Item>
         </Sidebar.ItemGroup>
       </Sidebar.Items>

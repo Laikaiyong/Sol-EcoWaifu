@@ -5,9 +5,15 @@ import { DarkThemeToggle, Navbar } from "flowbite-react";
 import Image from "next/image";
 import { HiMenuAlt1, HiX } from "react-icons/hi";
 
+import { useConnection, useWallet } from "@solana/wallet-adapter-react";
+import { WalletMultiButton } from "@solana/wallet-adapter-react-ui";
+
 export const DashboardNavbar= function () {
   const { isCollapsed: isSidebarCollapsed, setCollapsed: setSidebarCollapsed } =
     useSidebarContext();
+  
+    const { connection } = useConnection();
+    const { publicKey, sendTransaction } = useWallet();
 
   return (
     <header>
@@ -32,17 +38,20 @@ export const DashboardNavbar= function () {
               </button>
               <Navbar.Brand href="/">
                 <Image
-                  alt="Flowbite logo"
+                  alt="Sol EcoWaifu logo"
                   height="24"
-                  src="/next.svg"
+                  src="/sol-ecowaifu.png"
                   width="24"
                 />
                 <span className="self-center whitespace-nowrap px-3 text-xl font-semibold dark:text-white">
-                  Flowbite
+                  Sol EcoWaifu
                 </span>
               </Navbar.Brand>
             </div>
-            <DarkThemeToggle />
+            <div className="flex gap-1">
+            <WalletMultiButton />
+              <DarkThemeToggle />
+            </div>
           </div>
         </div>
       </Navbar>
