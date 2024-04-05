@@ -75,7 +75,7 @@ export const HomePageContent = function () {
         <TimelineExample />
       </section>
       <section className="pt-4">
-        <div className="max-w-full overflow-x-scroll">
+        <div className="max-w-full">
           <TablesExample />
         </div>
       </section>
@@ -86,99 +86,132 @@ export const HomePageContent = function () {
 
 const TablesExample = function () {
   return (
-    <Table striped>
-      <Table.Head>
-        <Table.HeadCell>Product name</Table.HeadCell>
-        <Table.HeadCell>Color</Table.HeadCell>
-        <Table.HeadCell>Category</Table.HeadCell>
-        <Table.HeadCell>Price</Table.HeadCell>
-        <Table.HeadCell>
-          <span className="sr-only">Edit</span>
-        </Table.HeadCell>
-      </Table.Head>
-      <Table.Body className="divide-y">
-        <Table.Row className="bg-white dark:border-gray-700 dark:bg-gray-800">
-          <Table.Cell className="whitespace-nowrap font-medium text-gray-900 dark:text-white">
-            Apple MacBook Pro 17&quot;
-          </Table.Cell>
-          <Table.Cell>Sliver</Table.Cell>
-          <Table.Cell>Laptop</Table.Cell>
-          <Table.Cell>$2999</Table.Cell>
-          <Table.Cell>
-            <a
-              href="/tables"
-              className="font-medium text-blue-600 hover:underline dark:text-blue-500"
-            >
-              Edit
-            </a>
-          </Table.Cell>
-        </Table.Row>
-        <Table.Row className="bg-white dark:border-gray-700 dark:bg-gray-800">
-          <Table.Cell className="whitespace-nowrap font-medium text-gray-900 dark:text-white">
-            Microsoft Surface Pro
-          </Table.Cell>
-          <Table.Cell>White</Table.Cell>
-          <Table.Cell>Laptop PC</Table.Cell>
-          <Table.Cell>$1999</Table.Cell>
-          <Table.Cell>
-            <a
-              href="/tables"
-              className="font-medium text-blue-600 hover:underline dark:text-blue-500"
-            >
-              Edit
-            </a>
-          </Table.Cell>
-        </Table.Row>
-        <Table.Row className="bg-white dark:border-gray-700 dark:bg-gray-800">
-          <Table.Cell className="whitespace-nowrap font-medium text-gray-900 dark:text-white">
-            Magic Mouse 2
-          </Table.Cell>
-          <Table.Cell>Black</Table.Cell>
-          <Table.Cell>Accessories</Table.Cell>
-          <Table.Cell>$99</Table.Cell>
-          <Table.Cell>
-            <a
-              href="/tables"
-              className="font-medium text-blue-600 hover:underline dark:text-blue-500"
-            >
-              Edit
-            </a>
-          </Table.Cell>
-        </Table.Row>
-        <Table.Row className="bg-white dark:border-gray-700 dark:bg-gray-800">
-          <Table.Cell className="whitespace-nowrap font-medium text-gray-900 dark:text-white">
-            Google Pixel Phone
-          </Table.Cell>
-          <Table.Cell>Gray</Table.Cell>
-          <Table.Cell>Phone</Table.Cell>
-          <Table.Cell>$799</Table.Cell>
-          <Table.Cell>
-            <a
-              href="/tables"
-              className="font-medium text-blue-600 hover:underline dark:text-blue-500"
-            >
-              Edit
-            </a>
-          </Table.Cell>
-        </Table.Row>
-        <Table.Row className="bg-white dark:border-gray-700 dark:bg-gray-800">
-          <Table.Cell className="whitespace-nowrap font-medium text-gray-900 dark:text-white">
-            Apple Watch 5
-          </Table.Cell>
-          <Table.Cell>failure</Table.Cell>
-          <Table.Cell>Wearables</Table.Cell>
-          <Table.Cell>$999</Table.Cell>
-          <Table.Cell>
-            <a
-              href="/tables"
-              className="font-medium text-blue-600 hover:underline dark:text-blue-500"
-            >
-              Edit
-            </a>
-          </Table.Cell>
-        </Table.Row>
-      </Table.Body>
-    </Table>
+    <div class="overflow-x-auto relative shadow-md sm:rounded-lg">
+  <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
+    <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+      <tr>
+        <th scope="col" class="py-3 px-6">Signature</th>
+        <th scope="col" class="py-3 px-6">Time</th>
+        <th scope="col" class="py-3 px-6">Type</th>
+        <th scope="col" class="py-3 px-6">From</th>
+        <th scope="col" class="py-3 px-6">To</th>
+        <th scope="col" class="py-3 px-6">Quantity</th>
+        <th scope="col" class="py-3 px-6">Token</th>
+      </tr>
+    </thead>
+    <tbody>
+    <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 ">
+        <td class="py-4 px-6">
+          <a href="#" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">5ECXkJGLc7tXEUV1bHGYus4...</a>
+        </td>
+        <td class="py-4 px-6">1 minute ago</td>
+        <td class="py-4 px-6">Sol-Transfer</td>
+        <td class="py-4 px-6">
+          <a href="#" class="text-blue-600 dark:text-blue-500 hover:underline">7BjPAh...zrVQsx</a>
+        </td>
+        <td class="py-4 px-6">
+          <a href="#" class="text-blue-600 dark:text-blue-500 hover:underline">4njwAB...85djVJ</a>
+        </td>
+        <td class="py-4 px-6">5</td>
+        <td class="py-4 px-6">
+          <a href="#" class="text-blue-600 dark:text-blue-500 hover:underline">Waifu #15</a>
+        </td>
+      </tr>
+      
+      <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
+        <td class="py-4 px-6">
+          <a href="#" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">3NGFZRpZ2sB9ECqB1RtZpyp...</a>
+        </td>
+        <td class="py-4 px-6">2 minutes ago</td>
+        <td class="py-4 px-6">Sol-Transfer</td>
+        <td class="py-4 px-6">
+          <a href="#" class="text-blue-600 dark:text-blue-500 hover:underline">9UkRBy...ShbEMs</a>
+        </td>
+        <td class="py-4 px-6">
+          <a href="#" class="text-blue-600 dark:text-blue-500 hover:underline">7BjPAh...zrVQsx</a>
+        </td>
+        <td class="py-4 px-6">3</td>
+        <td class="py-4 px-6">
+          <a href="#" class="text-blue-600 dark:text-blue-500 hover:underline">Waifu #12</a>
+        </td>
+      </tr>
+      
+      <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
+        <td class="py-4 px-6">
+          <a href="#" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">4n5QnLqJUPMmMf5BqjXyMUT...</a>
+        </td>
+        <td class="py-4 px-6">3 minutes ago</td>
+        <td class="py-4 px-6">Sol-Transfer</td>
+        <td class="py-4 px-6">
+          <a href="#" class="text-blue-600 dark:text-blue-500 hover:underline">7BjPAh...zrVQsx</a>
+        </td>
+        <td class="py-4 px-6">
+          <a href="#" class="text-blue-600 dark:text-blue-500 hover:underline">Aoc912...MR7DXE</a>
+        </td>
+        <td class="py-4 px-6">13</td>
+        <td class="py-4 px-6">
+          <a href="#" class="text-blue-600 dark:text-blue-500 hover:underline">Waifu #275</a>
+        </td>
+      </tr>
+    
+      <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
+        <td class="py-4 px-6">
+          <a href="#" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">mjkd8n1E77jzHavB3MqeaW...</a>
+        </td>
+        <td class="py-4 px-6">4 minutes ago</td>
+        <td class="py-4 px-6">Sol-Transfer</td>
+        <td class="py-4 px-6">
+          <a href="#" class="text-blue-600 dark:text-blue-500 hover:underline">9qEwpK...i93n3p</a>
+        </td>
+        <td class="py-4 px-6">
+          <a href="#" class="text-blue-600 dark:text-blue-500 hover:underline">7BjPAh...zrVQsx</a>
+        </td>
+        <td class="py-4 px-6">3</td>
+        <td class="py-4 px-6">
+          <a href="#" class="text-blue-600 dark:text-blue-500 hover:underline">Waifu #25</a>
+        </td>
+      </tr>
+      
+      <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
+        <td class="py-4 px-6">
+          <a href="#" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">5jvZot7PwKGMFMHdycfG5Snj...</a>
+        </td>
+        <td class="py-4 px-6">5 minutes ago</td>
+        <td class="py-4 px-6">Sol-Transfer</td>
+        <td class="py-4 px-6">
+          <a href="#" class="text-blue-600 dark:text-blue-500 hover:underline">7BjPAh...zrVQsx</a>
+        </td>
+        <td class="py-4 px-6">
+          <a href="#" class="text-blue-600 dark:text-blue-500 hover:underline">HhDoNH...6cBddi</a>
+        </td>
+        <td class="py-4 px-6">5</td>
+        <td class="py-4 px-6">
+          <a href="#" class="text-blue-600 dark:text-blue-500 hover:underline">Waifu #69</a>
+        </td>
+      </tr>
+      
+      <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
+        <td class="py-4 px-6">
+          <a href="#" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">2uaRDEpNLLW4tvC8YZeTD9d...</a>
+        </td>
+        <td class="py-4 px-6">6 minutes ago</td>
+        <td class="py-4 px-6">Sol-Transfer</td>
+        <td class="py-4 px-6">
+          <a href="#" class="text-blue-600 dark:text-blue-500 hover:underline">7VNnMf...HmekwT</a>
+        </td>
+        <td class="py-4 px-6">
+          <a href="#" class="text-blue-600 dark:text-blue-500 hover:underline">7BjPAh...zrVQsx</a>
+        </td>
+        <td class="py-4 px-6">8</td>
+        <td class="py-4 px-6">
+          <a href="#" class="text-blue-600 dark:text-blue-500 hover:underline">Waifu #88</a>
+        </td>
+      </tr>
+
+    </tbody>
+  </table>
+</div>
+
   );
 };
 
