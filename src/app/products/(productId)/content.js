@@ -126,9 +126,69 @@ export const HomePageContent = function () {
       </section>
       <section>
         <h2 class="py-3 text-2xl font-bold text-gray-900 dark:text-white">
-          Daily Hot Items 🔥
+          Hot Items 🔥
         </h2>
         <ItemCardList />
+        <Card
+          className="max-w-sm"
+          imgAlt="Apple Watch Series 7 in colors pink, silver, and black"
+          imgSrc="/images/products/apple-watch.png">
+          <a href="#">
+            <h5 className="text-xl font-semibold tracking-tight text-gray-900 dark:text-white">
+              Apple Watch Series 7 GPS, Aluminium Case, Starlight Sport
+            </h5>
+          </a>
+          <div className="mb-5 mt-2.5 flex items-center">
+            <svg
+              className="h-5 w-5 text-yellow-300"
+              fill="currentColor"
+              viewBox="0 0 20 20"
+              xmlns="http://www.w3.org/2000/svg">
+              <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+            </svg>
+            <svg
+              className="h-5 w-5 text-yellow-300"
+              fill="currentColor"
+              viewBox="0 0 20 20"
+              xmlns="http://www.w3.org/2000/svg">
+              <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+            </svg>
+            <svg
+              className="h-5 w-5 text-yellow-300"
+              fill="currentColor"
+              viewBox="0 0 20 20"
+              xmlns="http://www.w3.org/2000/svg">
+              <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+            </svg>
+            <svg
+              className="h-5 w-5 text-yellow-300"
+              fill="currentColor"
+              viewBox="0 0 20 20"
+              xmlns="http://www.w3.org/2000/svg">
+              <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+            </svg>
+            <svg
+              className="h-5 w-5 text-yellow-300"
+              fill="currentColor"
+              viewBox="0 0 20 20"
+              xmlns="http://www.w3.org/2000/svg">
+              <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+            </svg>
+            <span className="ml-3 mr-2 rounded bg-cyan-100 px-2.5 py-0.5 text-xs font-semibold text-cyan-800 dark:bg-cyan-200 dark:text-cyan-800">
+              5.0
+            </span>
+          </div>
+          <div className="flex items-center justify-between">
+            <span className="text-3xl font-bold text-gray-900 dark:text-white">
+              $599
+            </span>
+            <a
+              href="#"
+              className="rounded-lg bg-cyan-700 px-5 py-2.5 text-center text-sm font-medium text-white hover:bg-cyan-800 focus:outline-none focus:ring-4 focus:ring-cyan-300 dark:bg-cyan-600 dark:hover:bg-cyan-700 dark:focus:ring-cyan-800">
+              Add to cart
+            </a>
+          </div>
+        </Card>
       </section>
       <div>
         <img src={src} />
@@ -143,16 +203,18 @@ export const HomePageContent = function () {
 const Star = ({ filled }) => {
   return (
     <svg
-      className="h-3 w-3"
-      fill={filled ? "orange" : "currentColor"}
-      stroke={filled ? "orange" : "currentColor"}
+      className="h-5 w-5"
+      fill={filled ? 'currentColor' : 'none'}
+      stroke="currentColor"
       viewBox="0 0 24 24"
-      xmlns="http://www.w3.org/2000/svg">
+      xmlns="http://www.w3.org/2000/svg"
+    >
       <path
         strokeLinecap="round"
         strokeLinejoin="round"
         strokeWidth="2"
-        d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2z"></path>
+        d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2z"
+      ></path>
     </svg>
   );
 };
@@ -163,23 +225,20 @@ const ItemCard = ({ img_src, item_title, item_description, star_num, item_price 
     for (let i = 0; i < star_num; i++) {
       stars.push(<Star key={i} filled={true} />);
     }
-    for (let i = 0; i < (5-star_num); i++) {
-      stars.push(<Star key={i} filled={false} />);
-    }
     return stars;
   };
 
   return (
-    <div className="min-w-80 max-w-sm bg-white rounded-lg shadow-md overflow-hidden dark:bg-gray-800 dark:border-gray-700 transition duration-300 ease-in-out hover:shadow-lg">
-    <div className="w-full overflow-hidden" style={{ height: '280px' }}>
-      <img className="w-full h-full object-cover transform transition duration-300 ease-in-out hover:scale-110" src={img_src} alt={item_title} />
-    </div>
-    <div className="p-4">
+    <Card
+      className="max-w-80"
+      imgAlt={item_title}            
+      imgSrc={img_src}
+    >
       <a href="#">
-        <h5 className="text-md font-semibold tracking-tight text-gray-900 dark:text-white">
+        <h5 className="text-xl font-semibold tracking-tight text-gray-900 dark:text-white">
           {item_title}
         </h5>
-        <h5 className="text-sm tracking-tight text-gray-900 dark:text-white">
+        <h5 className="text-md tracking-tight text-gray-900 dark:text-white">
           {item_description}
         </h5>
       </a>
@@ -189,59 +248,39 @@ const ItemCard = ({ img_src, item_title, item_description, star_num, item_price 
           {star_num}.0
         </span>
       </div>
-      <div className="flex flex-row items-center justify-between">
-        <span className="text-xl font-bold text-gray-900 dark:text-white">
-          RM {item_price}
-        </span>
+      <div className="flex items-center justify-between">
+        <span className="text-3xl font-bold text-gray-900 dark:text-white">RM {item_price}</span>
         <a
           href="#"
-          className="rounded-lg bg-cyan-700 px-3 py-1.5 text-center text-xs font-medium text-white hover:bg-cyan-800 focus:outline-none focus:ring-4 focus:ring-cyan-300 dark:bg-cyan-600 dark:hover:bg-cyan-700 dark:focus:ring-cyan-800">
+          className="rounded-lg bg-cyan-700 px-5 py-2.5 text-center text-sm font-medium text-white hover:bg-cyan-800 focus:outline-none focus:ring-4 focus:ring-cyan-300 dark:bg-cyan-600 dark:hover:bg-cyan-700 dark:focus:ring-cyan-800"
+        >
           Add to cart
         </a>
-        </div>
       </div>
-    </div>
+    </Card>
   );
 };
 
 const itemCardData = [
   {
-    img_src:
-      "https://i.pinimg.com/736x/97/0c/8e/970c8ed0f317b620347e6549086daf88.jpg",
-    item_title: "AG Special Edition #20",
-    item_description: "idk what is this",
-    star_num: "4",
-    item_price: "300",
+    img_src: 'https://i.pinimg.com/736x/97/0c/8e/970c8ed0f317b620347e6549086daf88.jpg',
+    item_title: 'AG Special Edition #20',
+    item_description: 'idk what is this',
+    star_num: '4',
+    item_price: '300',
   },
   {
-    img_src:
-      "https://i.pinimg.com/736x/97/0c/8e/970c8ed0f317b620347e6549086daf88.jpg",
-    item_title: "AG Special Edition #20",
-    item_description: "idk what is this",
-    star_num: "3",
-    item_price: "300",
-  },
-  {
-    img_src:
-      "https://i.pinimg.com/736x/97/0c/8e/970c8ed0f317b620347e6549086daf88.jpg",
-    item_title: "AG Special Edition #20",
-    item_description: "idk what is this",
-    star_num: "3",
-    item_price: "300",
-  },
-  {
-    img_src:
-      "https://i.pinimg.com/736x/97/0c/8e/970c8ed0f317b620347e6549086daf88.jpg",
-    item_title: "AG Special Edition #20",
-    item_description: "idk what is this",
-    star_num: "3",
-    item_price: "300",
+    img_src: 'https://i.pinimg.com/736x/97/0c/8e/970c8ed0f317b620347e6549086daf88.jpg',
+    item_title: 'AG Special Edition #20',
+    item_description: 'idk what is this',
+    star_num: '3',
+    item_price: '300',
   },
 ];
 
 const ItemCardList = () => {
   return (
-    <div className="flex flex-row gap-4 my-6 overflow-y-scroll">
+    <div className="flex flex-row gap-4">
       {itemCardData.map((card, index) => (
         <ItemCard key={index} {...card} />
       ))}

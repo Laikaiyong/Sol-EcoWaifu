@@ -22,6 +22,7 @@
     "@solana/wallet-adapter-react-ui": "^0.9.35",
     "@solana/wallet-adapter-wallets": "^0.19.32",
     "@solana/web3.js": "^1.91.2",
+    "@virtual-protocol/react-virtual-ai": "^0.0.105",
     "cookies-next": "^4.1.1",
     "flowbite": "^2.3.0",
     "flowbite-react": "^0.7.6",

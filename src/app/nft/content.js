@@ -134,7 +134,7 @@ const cardsData = [
     lastSale: '<0.01 ETH',
   },
   {
-    imgSrc: 'https://i.pinimg.com/236x/c3/14/ba/c314ba982fefb5e3d95e60ba436e51f3.jpg',
+    imgSrc: 'https://pbs.twimg.com/media/FNqTjVeWUAc6dZ0.jpg',
     title: 'AG Special Edition #20',
     edition: 'x1000',
     price: '0.0008 ETH',

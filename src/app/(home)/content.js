@@ -61,17 +61,11 @@ import {
 
 
 export const HomePageContent = function () {
-  const image = "/logo.png";
-    const [src, setSrc] = useState(''); // initial src will be empty
-
     useEffect(() => {
     }, []);
 
   return (
     <div className="p-6">
-       <div>
-                <img src={src} />
-            </div>
       <section>
         <header>
           <h1 className="mb-6 text-5xl font-extrabold dark:text-white">
