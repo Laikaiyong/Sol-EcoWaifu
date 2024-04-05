@@ -72,10 +72,10 @@ export const HomePageContent = function () {
             Transaction History
           </h2>
         </header>
-        <TimelineExample />
+        
       </section>
       <section className="pt-4">
-        <div className="max-w-full overflow-x-scroll">
+        <div className="max-w-full ">
           <TablesExample />
         </div>
       </section>
@@ -84,103 +84,145 @@ export const HomePageContent = function () {
 };
 
 
-const TablesExample = function () {
-  return (
-    <Table striped>
-      <Table.Head>
-        <Table.HeadCell>Product name</Table.HeadCell>
-        <Table.HeadCell>Color</Table.HeadCell>
-        <Table.HeadCell>Category</Table.HeadCell>
-        <Table.HeadCell>Price</Table.HeadCell>
-        <Table.HeadCell>
-          <span className="sr-only">Edit</span>
-        </Table.HeadCell>
-      </Table.Head>
-      <Table.Body className="divide-y">
-        <Table.Row className="bg-white dark:border-gray-700 dark:bg-gray-800">
-          <Table.Cell className="whitespace-nowrap font-medium text-gray-900 dark:text-white">
-            Apple MacBook Pro 17&quot;
-          </Table.Cell>
-          <Table.Cell>Sliver</Table.Cell>
-          <Table.Cell>Laptop</Table.Cell>
-          <Table.Cell>$2999</Table.Cell>
-          <Table.Cell>
-            <a
-              href="/tables"
-              className="font-medium text-blue-600 hover:underline dark:text-blue-500"
-            >
-              Edit
-            </a>
-          </Table.Cell>
-        </Table.Row>
-        <Table.Row className="bg-white dark:border-gray-700 dark:bg-gray-800">
-          <Table.Cell className="whitespace-nowrap font-medium text-gray-900 dark:text-white">
-            Microsoft Surface Pro
-          </Table.Cell>
-          <Table.Cell>White</Table.Cell>
-          <Table.Cell>Laptop PC</Table.Cell>
-          <Table.Cell>$1999</Table.Cell>
-          <Table.Cell>
-            <a
-              href="/tables"
-              className="font-medium text-blue-600 hover:underline dark:text-blue-500"
-            >
-              Edit
-            </a>
-          </Table.Cell>
-        </Table.Row>
-        <Table.Row className="bg-white dark:border-gray-700 dark:bg-gray-800">
-          <Table.Cell className="whitespace-nowrap font-medium text-gray-900 dark:text-white">
-            Magic Mouse 2
-          </Table.Cell>
-          <Table.Cell>Black</Table.Cell>
-          <Table.Cell>Accessories</Table.Cell>
-          <Table.Cell>$99</Table.Cell>
-          <Table.Cell>
-            <a
-              href="/tables"
-              className="font-medium text-blue-600 hover:underline dark:text-blue-500"
-            >
-              Edit
-            </a>
-          </Table.Cell>
-        </Table.Row>
-        <Table.Row className="bg-white dark:border-gray-700 dark:bg-gray-800">
-          <Table.Cell className="whitespace-nowrap font-medium text-gray-900 dark:text-white">
-            Google Pixel Phone
-          </Table.Cell>
-          <Table.Cell>Gray</Table.Cell>
-          <Table.Cell>Phone</Table.Cell>
-          <Table.Cell>$799</Table.Cell>
-          <Table.Cell>
-            <a
-              href="/tables"
-              className="font-medium text-blue-600 hover:underline dark:text-blue-500"
-            >
-              Edit
-            </a>
-          </Table.Cell>
-        </Table.Row>
-        <Table.Row className="bg-white dark:border-gray-700 dark:bg-gray-800">
-          <Table.Cell className="whitespace-nowrap font-medium text-gray-900 dark:text-white">
-            Apple Watch 5
-          </Table.Cell>
-          <Table.Cell>failure</Table.Cell>
-          <Table.Cell>Wearables</Table.Cell>
-          <Table.Cell>$999</Table.Cell>
-          <Table.Cell>
-            <a
-              href="/tables"
-              className="font-medium text-blue-600 hover:underline dark:text-blue-500"
-            >
-              Edit
-            </a>
-          </Table.Cell>
-        </Table.Row>
-      </Table.Body>
-    </Table>
-  );
-};
+
+
+  const TablesExample = function () {
+    return (
+      
+    
+<div class="bg-white shadow-md rounded my-6 opacity-100">
+
+ 
+  <ul class="flex mb-0 list-none flex-wrap pt-3 pb-4 flex-row">
+    <li class="w-1/5 flex-1 text-gray-600 text-center">Item</li>
+    <li class="w-1/5 flex-1 text-gray-600 text-center">Price</li>
+    <li class="w-1/5 flex-1 text-gray-600 text-center">Rarity</li>
+    <li class="w-1/5 flex-1 text-gray-600 text-center">Quantity</li>
+    <li class="w-1/5 flex-1 text-gray-600 text-center">From</li>
+    <li class="w-1/5 flex-1 text-gray-600 text-center">To</li>
+    <li class="w-1/5 flex-1 text-gray-600 text-center">Time</li>
+  </ul>
+ 
+  <ul id="table-content" class="flex flex-col space-y-2">
+      
+  <li className="flex flex-row hover:bg-blue-100 transition duration-150 ease-in-out transform hover:-translate-y-1">
+    <div class="flex-1 text-black text-center">Waifu #1275</div>
+    <div class="flex-1 text-black text-center">1.520 SOL</div>
+    <div class="flex-1 text-black text-center">--</div>
+    <div class="flex-1 text-black text-center">1</div>
+    <div class="flex-1 text-black text-center">899933</div>
+    <div class="flex-1 text-black text-center">BitroxHot</div>
+    <div class="flex-1 text-black text-center">11h ago</div>
+  </li>
+  
+  <li className="flex flex-row   hover:bg-blue-100 transition duration-150 ease-in-out transform hover:-translate-y-1">
+    <div class="flex-1 text-black text-center">Waifu #9721</div>
+    <div class="flex-1 text-black text-center">1.850 SOL</div>
+    <div class="flex-1 text-black text-center">--</div>
+    <div class="flex-1 text-black text-center">1</div>
+    <div class="flex-1 text-black text-center">DFAE67</div>
+    <div class="flex-1 text-black text-center">B231AF</div>
+    <div class="flex-1 text-black text-center">18h ago</div>
+  </li>
+ 
+  <li className="flex flex-row   hover:bg-blue-100 transition duration-150 ease-in-out transform hover:-translate-y-1">
+    <div class="flex-1 text-black text-center">Waifu #2723</div>
+    <div class="flex-1 text-black text-center">1.500 SOL</div>
+    <div class="flex-1 text-black text-center">--</div>
+    <div class="flex-1 text-black text-center">1</div>
+    <div class="flex-1 text-black text-center">CRYPTO_San</div>
+    <div class="flex-1 text-black text-center">Makrillen</div>
+    <div class="flex-1 text-black text-center">1d ago</div>
+  </li>
+  
+  <li className="flex flex-row   hover:bg-blue-100 transition duration-150 ease-in-out transform hover:-translate-y-1">
+    <div class="flex-1 text-black text-center">Waifu #4180</div>
+    <div class="flex-1 text-black text-center">1.750 SOL</div>
+    <div class="flex-1 text-black text-center">--</div>
+    <div class="flex-1 text-black text-center">1</div>
+    <div class="flex-1 text-black text-center">47D4DA</div>
+    <div class="flex-1 text-black text-center">7E9C7A</div>
+    <div class="flex-1 text-black text-center">2d ago</div>
+  </li>
+  
+  <li className="flex flex-row   hover:bg-blue-100 transition duration-150 ease-in-out transform hover:-translate-y-1">
+    <div class="flex-1 text-black text-center">Waifu #3150</div>
+    <div class="flex-1 text-black text-center">1.625 SOL</div>
+    <div class="flex-1 text-black text-center">--</div>
+    <div class="flex-1 text-black text-center">1</div>
+    <div class="flex-1 text-black text-center">A3B3AC</div>
+    <div class="flex-1 text-black text-center">899933</div>
+    <div class="flex-1 text-black text-center">3d ago</div>
+  </li>
+  
+  <li className="flex flex-row   hover:bg-blue-100 transition duration-150 ease-in-out transform hover:-translate-y-1">  
+    <div class="flex-1 text-black text-center">Waifu #2112</div>
+    <div class="flex-1 text-black text-center">1.480 SOL</div>
+    <div class="flex-1 text-black text-center">--</div>
+    <div class="flex-1 text-black text-center">1</div>
+    <div class="flex-1 text-black text-center">B1TROX22</div>
+    <div class="flex-1 text-black text-center">HotDealz</div>
+    <div class="flex-1 text-black text-center">4d ago</div>
+  </li>
+
+  <li className="flex flex-row   hover:bg-blue-100 transition duration-150 ease-in-out transform hover:-translate-y-1">
+  <div class="flex-1 text-black text-center">Waifu #5284</div>
+  <div class="flex-1 text-black text-center">1.742 SOL</div>
+  <div class="flex-1 text-black text-center">--</div>
+  <div class="flex-1 text-black text-center">1</div>
+  <div class="flex-1 text-black text-center">C4D2E9</div>
+  <div class="flex-1 text-black text-center">RareFindz</div>
+  <div class="flex-1 text-black text-center">2d ago</div>
+  </li>
+
+  <li className="flex flex-row   hover:bg-blue-100 transition duration-150 ease-in-out transform hover:-translate-y-1">
+  <div class="flex-1 text-black text-center">Waifu #3079</div>
+  <div class="flex-1 text-black text-center">2.110 SOL</div>
+  <div class="flex-1 text-black text-center">--</div>
+  <div class="flex-1 text-black text-center">1</div>
+  <div class="flex-1 text-black text-center">98B2C4</div>
+  <div class="flex-1 text-black text-center">CryptoCritters</div>
+  <div class="flex-1 text-black text-center">1d ago</div>
+</li>
+
+<li className="flex flex-row   hover:bg-blue-100 transition duration-150 ease-in-out transform hover:-translate-y-1">
+  <div class="flex-1 text-black text-center">Waifu #2233</div>
+  <div class="flex-1 text-black text-center">1.657 SOL</div>
+  <div class="flex-1 text-black text-center">--</div>
+  <div class="flex-1 text-black text-center">1</div>
+  <div class="flex-1 text-black text-center">A5C663</div>
+  <div class="flex-1 text-black text-center">NiftyNuggets</div>
+  <div class="flex-1 text-black text-center">3d ago</div>
+</li>
+
+<li className="flex flex-row   hover:bg-blue-100 transition duration-150 ease-in-out transform hover:-translate-y-1">
+  <div class="flex-1 text-black text-center">Waifu #1568</div>
+  <div class="flex-1 text-black text-center">1.375 SOL</div>
+  <div class="flex-1 text-black text-center">--</div>
+  <div class="flex-1 text-black text-center">1</div>
+  <div class="flex-1 text-black text-center">D3E2F4</div>
+  <div class="flex-1 text-black text-center">EtherGems</div>
+  <div class="flex-1 text-black text-center">6d ago</div>
+</li>
+
+<li className="flex flex-row   hover:bg-blue-100 transition duration-150 ease-in-out transform hover:-translate-y-1">
+  <div class="flex-1 text-black text-center">Waifu #2490</div>
+  <div class="flex-1 text-black text-center">1.823 SOL</div>
+  <div class="flex-1 text-black text-center">--</div>
+  <div class="flex-1 text-black text-center">1</div>
+  <div class="flex-1 text-black text-center">B9A1C5</div>
+  <div class="flex-1 text-black text-center">DigitalDragons</div>
+  <div class="flex-1 text-black text-center">2d ago</div>
+</li>
+
+
+</ul>
+
+
+</div>
+
+    );
+  };
 
 const TimelineExample = function () {
   return (
