@@ -1,6 +1,5 @@
 "use client";
 
-import { generateWaifuPic } from "../../services/huggingfaceservice";
 import {
   Accordion,
   Alert,
@@ -66,7 +65,6 @@ export const HomePageContent = function () {
     const [src, setSrc] = useState(''); // initial src will be empty
 
     useEffect(() => {
-     generateWaifuPic(setSrc);
     }, []);
 
   return (

@@ -1,9 +1,9 @@
 "use client";
 
-import { SidebarProvider, useSidebarContext } from "../../context/sidebarcontext";
+import { SidebarProvider, useSidebarContext } from "../../../context/sidebarcontext";
 import { twMerge } from "tailwind-merge";
-import { DashboardNavbar } from "../(home)/navbar";
-import { DashboardSidebar } from "../(home)/sidebar";
+import { DashboardNavbar } from "../../(home)/navbar";
+import { DashboardSidebar } from "../../(home)/sidebar";
 
 const DashboardLayout = function ({ children }) {
   return (
