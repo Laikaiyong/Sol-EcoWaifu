@@ -138,8 +138,7 @@ const CardList = () => {
           <div className="p-5">
             <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">{waifu.title}</h5>
             <p className="font-normal text-gray-700 dark:text-gray-400">Last sale: {waifu.lastSale}</p>
-            <div className="flex justify-between items-center mt-4">
-              <span className="text-sm bg-gray-200 text-gray-800 font-semibold py-1 px-3 rounded-full">{waifu.edition}</span>
+            <div className="flex justify-end mt-4">
               <span className="text-sm bg-blue-200 text-blue-800 font-semibold py-1 px-3 rounded-full">{waifu.price}</span>
             </div>
           </div>

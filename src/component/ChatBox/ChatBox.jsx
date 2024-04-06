@@ -21,6 +21,21 @@ function ChatBox({ role }) {
   const { connection } = useConnection();
   const [messages, setMessages] = useState([]);
   const [text, setText] = useState("");
+  const [emojis, setEmojis] = useState([]);
+
+  const rainEmoji = () => {
+    const newEmoji = {
+      id: Math.random(),
+      x: Math.random() * window.innerWidth,
+      y: Math.random() * window.innerHeight,
+    };
+
+    setEmojis((prevEmojis) => [...prevEmojis, newEmoji]);
+
+    setTimeout(() => {
+      setEmojis((prevEmojis) => prevEmojis.filter((e) => e.id !== newEmoji.id));
+    }, 3000);
+  };
 
   const { peerId } = useLocalPeer();
   const { sendData } = useDataMessage({
@@ -70,6 +85,7 @@ function ChatBox({ role }) {
     });
     setText("");
   };
+  
 
   return (
     <div className="flex flex-col w-full p-6">
@@ -132,7 +148,7 @@ function ChatBox({ role }) {
           <Tooltip content="Lit">
             <button
               type="button"
-              onClick={() => sendSol()}
+              onClick={() => {sendSol(); rainEmoji();}}
               className="bg-blue-500 dark:bg-blue-200 rounded-xl p-2 text-xl">
               🔥
             </button>
@@ -145,32 +161,53 @@ function ChatBox({ role }) {
               🎁
             </button>
           </Tooltip>
-          <button
-            type="button"
-            onClick={() => sendSol()}
-            className="bg-blue-500 dark:bg-blue-200 rounded-xl p-2 text-xl">
-            👏
-          </button>
-          <button
-            type="button"
-            onClick={() => sendSol()}
-            className="bg-blue-500 dark:bg-blue-200 rounded-xl p-2 text-xl">
-            💎
-          </button>
-          <button
-            type="button"
-            onClick={() => sendSol()}
-            className="bg-blue-500 dark:bg-blue-200 rounded-xl p-2 text-xl">
-            ❌
-          </button>
-          <button
-            type="button"
-            onClick={() => sendSol()}
-            className="bg-blue-500 dark:bg-blue-200 rounded-xl p-2 text-xl">
-            💯
-          </button>
+          <Tooltip content="Clap">
+            <button
+              type="button"
+              onClick={() => sendSol()}
+              className="bg-blue-500 dark:bg-blue-200 rounded-xl p-2 text-xl">
+              👏
+            </button>
+          </Tooltip>
+          <Tooltip content="Value">
+            <button
+              type="button"
+              onClick={() => sendSol()}
+              className="bg-blue-500 dark:bg-blue-200 rounded-xl p-2 text-xl">
+              💎
+            </button>
+          </Tooltip>
+          <Tooltip content="Reject">
+            <button
+              type="button"
+              onClick={() => sendSol()}
+              className="bg-blue-500 dark:bg-blue-200 rounded-xl p-2 text-xl">
+              ❌
+            </button>
+          </Tooltip>
+          <Tooltip content="Great">
+            <button
+              type="button"
+              onClick={() => sendSol()}
+              className="bg-blue-500 dark:bg-blue-200 rounded-xl p-2 text-xl">
+              💯
+            </button>
+          </Tooltip>
         </div>
       )}
+      {emojis.map((e) => (
+        <div
+          key={e.id}
+          style={{
+            position: "absolute",
+            left: e.x,
+            top: e.y,
+            fontSize: "24px",
+            pointerEvents: "none",
+          }}>
+          {emoji}
+        </div>
+      ))}
     </div>
   );
 }

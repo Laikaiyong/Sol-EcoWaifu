@@ -15,7 +15,6 @@
     "@huggingface/hub": "^0.14.6",
     "@huggingface/inference": "^2.6.6",
     "@metaplex-foundation/js": "^0.17.6",
-    "@reclaimprotocol/js-sdk": "^1.1.0",
     "@solana-mobile/mobile-wallet-adapter-protocol-web3js": "^2.1.2",
     "@solana/spl-token": "^0.4.3",
     "@solana/wallet-adapter-base": "^0.9.23",
