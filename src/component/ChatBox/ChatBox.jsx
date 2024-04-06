@@ -1,5 +1,6 @@
 import { useDataMessage, useLocalPeer } from '@huddle01/react/hooks';
 import { useState } from 'react';
+import { emoji, useReward } from 'react-rewards';
 import LocalMessageBubble from './LocalMessageBubble';
 import RemoteMessageBubble from './RemoteMessageBubble';
 import { Button, Tooltip } from 'flowbite-react';
@@ -16,25 +17,41 @@ import {
   clusterApiUrl,
 } from "@solana/web3.js";
 
+function useCustomReward(emoji) {
+  const { reward, isAnimating } = useReward(
+    "rewardId",
+    "emoji",
+    {
+      emoji: [emoji],
+      lifetime: 50,
+      elementCount: 60,
+      startVelocity: 60,
+      zIndex: 9999,
+      angle: 135,
+      position: 'absolute',
+    }
+  );
+
+  return { reward, isAnimating };
+}
+
+
 function ChatBox({ role }) {
   const { publicKey, sendTransaction, connected } = useWallet();
   const { connection } = useConnection();
   const [messages, setMessages] = useState([]);
   const [text, setText] = useState("");
-  const [emojis, setEmojis] = useState([]);
 
-  const rainEmoji = () => {
-    const newEmoji = {
-      id: Math.random(),
-      x: Math.random() * window.innerWidth,
-      y: Math.random() * window.innerHeight,
-    };
+  const fireReward = useCustomReward("🔥");
+  const giftReward = useCustomReward("🎁");
+  const clapReward = useCustomReward("👏");
+  const valueReward = useCustomReward("💎");
+  const rejectReward = useCustomReward("❌");
+  const greatReward = useCustomReward("💯");
 
-    setEmojis((prevEmojis) => [...prevEmojis, newEmoji]);
-
-    setTimeout(() => {
-      setEmojis((prevEmojis) => prevEmojis.filter((e) => e.id !== newEmoji.id));
-    }, 3000);
+  const sendSolAndReward = (reward) => {
+    reward();
+    setTimeout(sendSol, 850);
   };
 
   const { peerId } = useLocalPeer();
@@ -85,7 +102,6 @@ function ChatBox({ role }) {
     });
     setText("");
   };
-  
 
   return (
     <div className="flex flex-col w-full p-6">
@@ -148,66 +164,64 @@ function ChatBox({ role }) {
           <Tooltip content="Lit">
             <button
               type="button"
-              onClick={() => {sendSol(); rainEmoji();}}
+              onClick={()=>sendSolAndReward(fireReward.reward)}
+              disabled={fireReward.isAnimating}
               className="bg-blue-500 dark:bg-blue-200 rounded-xl p-2 text-xl">
-              🔥
+              <span id="rewardId" />🔥
             </button>
           </Tooltip>
           <Tooltip content="Gift">
-            <button
-              type="button"
-              onClick={() => sendSol()}
-              className="bg-blue-500 dark:bg-blue-200 rounded-xl p-2 text-xl">
-              🎁
-            </button>
-          </Tooltip>
-          <Tooltip content="Clap">
-            <button
-              type="button"
-              onClick={() => sendSol()}
-              className="bg-blue-500 dark:bg-blue-200 rounded-xl p-2 text-xl">
-              👏
-            </button>
-          </Tooltip>
-          <Tooltip content="Value">
-            <button
-              type="button"
-              onClick={() => sendSol()}
-              className="bg-blue-500 dark:bg-blue-200 rounded-xl p-2 text-xl">
-              💎
-            </button>
-          </Tooltip>
-          <Tooltip content="Reject">
-            <button
-              type="button"
-              onClick={() => sendSol()}
-              className="bg-blue-500 dark:bg-blue-200 rounded-xl p-2 text-xl">
-              ❌
-            </button>
-          </Tooltip>
-          <Tooltip content="Great">
-            <button
-              type="button"
-              onClick={() => sendSol()}
-              className="bg-blue-500 dark:bg-blue-200 rounded-xl p-2 text-xl">
-              💯
-            </button>
-          </Tooltip>
+          <button
+            type="button"
+            onClick={() => sendSolAndReward(giftReward.reward)}
+            disabled={giftReward.isAnimating}
+            className="bg-blue-500 dark:bg-blue-200 rounded-xl p-2 text-xl"
+          >
+            <span id="rewardId" />🎁
+          </button>
+        </Tooltip>
+        <Tooltip content="Clap">
+          <button
+            type="button"
+            onClick={() => sendSolAndReward(clapReward.reward)}
+            disabled={clapReward.isAnimating}
+            className="bg-blue-500 dark:bg-blue-200 rounded-xl p-2 text-xl"
+          >
+            <span id="rewardId" />👏
+          </button>
+        </Tooltip>
+        <Tooltip content="Value">
+          <button
+            type="button"
+            onClick={() => sendSolAndReward(valueReward.reward)}
+            disabled={valueReward.isAnimating}
+            className="bg-blue-500 dark:bg-blue-200 rounded-xl p-2 text-xl"
+          >
+            <span id="rewardId" />💎
+          </button>
+        </Tooltip>
+        <Tooltip content="Reject">
+          <button
+            type="button"
+            onClick={() => sendSolAndReward(rejectReward.reward)}
+            disabled={rejectReward.isAnimating}
+            className="bg-blue-500 dark:bg-blue-200 rounded-xl p-2 text-xl"
+          >
+            <span id="rewardId" />❌
+          </button>
+        </Tooltip>
+        <Tooltip content="Great">
+          <button
+            type="button"
+            onClick={() => sendSolAndReward(greatReward.reward)}
+            disabled={greatReward.isAnimating}
+            className="bg-blue-500 dark:bg-blue-200 rounded-xl p-2 text-xl"
+          >
+            <span id="rewardId" />💯
+          </button>
+        </Tooltip>
         </div>
       )}
-      {emojis.map((e) => (
-        <div
-          key={e.id}
-          style={{
-            position: "absolute",
-            left: e.x,
-            top: e.y,
-            fontSize: "24px",
-            pointerEvents: "none",
-          }}>
-          {emoji}
-        </div>
-      ))}
     </div>
   );
 }
