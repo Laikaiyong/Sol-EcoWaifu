@@ -4,6 +4,14 @@ export const generateWaifuPic= async (setWaifuPic) => {
     try {
         
         const hf = new HfInference(process.env.NEXT_PUBLIC_HUGGING_FACE_API);
+        const index =Math.floor(Math.random() * 10);
+
+        const color = [
+          "black", "red", "blue", "green", "brown", "yellow", "white", "grey", "pink", "purple"
+        ]
+        const topAttire = [
+          "cap", "beanie", "hat", "baseball cap", "cowboy hat", "panama", "cloche", "ivy cap", "turban", "top"
+        ]
 
           // const text = await hf.textGeneration({
           //   model: 'gpt2',
@@ -14,7 +22,7 @@ export const generateWaifuPic= async (setWaifuPic) => {
 
           // console.log(color );
         const item = await hf.textToImage({
-          inputs: 'masterpiece, best quality, 1girl, black hair, outdoor',
+          inputs: color[index] + ' hair, 1 girl, ' + topAttire[index] + ', masterpiece, best quality, outdoors',
           // model: 'stabilityai/stable-diffusion-2',
           model: 'hakurei/waifu-diffusion',
           // parameters: {

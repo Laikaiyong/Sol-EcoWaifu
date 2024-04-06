@@ -45,6 +45,7 @@ export default function ProductDetails({ params }) {
   const { connection } = useConnection();
   const [quantity, setQuantity] = useState(1);
   const [price, setPrice] = useState(0.0);
+  const [nftHash, setNftHash] = useState("");
   const product = products.find(
     (product) => product.product_id === params.product_id
   );
@@ -137,6 +138,7 @@ export default function ProductDetails({ params }) {
               <Button
                 onClick={() => {
                   sendSol(price);
+                  setNftHash(Math.floor(Math.random() * 1000))
                   generateWaifuPic(setSrc);
                 }}>
                 Purchase
@@ -157,7 +159,7 @@ export default function ProductDetails({ params }) {
           imgSrc={src}>
           <a href="#">
             <h5 className="text-xl font-semibold tracking-tight text-gray-900 dark:text-white">
-              Waifu #827
+              Waifu #{nftHash}
             </h5>
           </a>
           <div className="flex items-center justify-between">

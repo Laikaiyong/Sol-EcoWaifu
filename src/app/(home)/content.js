@@ -54,10 +54,8 @@ import {
   HiX,
 } from "react-icons/hi";
 
-
 export const HomePageContent = function () {
-    useEffect(() => {
-    }, []);
+  useEffect(() => {}, []);
 
   return (
     <div className="p-6">
@@ -94,165 +92,163 @@ export const HomePageContent = function () {
             Discover more
           </h2>
         </header>
-        <div class="flex items-center justify-start mb-2 py-1 md:py-2 flex-wrap">
+        <div className="flex items-center justify-start mb-2 py-1 md:py-2 flex-wrap">
           <button
             type="button"
-            class="text-gray-700 hover:text-white border border-gray-600 bg-white hover:bg-gray-700 focus:ring-4 focus:outline-none focus:ring-gray-300 rounded-full text-sm font-medium px-5 py-2 text-center me-3 mb-2 dark:border-gray-500 dark:text-gray-500 dark:hover:text-white dark:hover:bg-gray-500 dark:bg-gray-900 dark:focus:ring-gray-800">
+            className="text-gray-700 hover:text-white border border-gray-600 bg-white hover:bg-gray-700 focus:ring-4 focus:outline-none focus:ring-gray-300 rounded-full text-sm font-medium px-5 py-2 text-center me-3 mb-2 dark:border-gray-500 dark:text-gray-500 dark:hover:text-white dark:hover:bg-gray-500 dark:bg-gray-900 dark:focus:ring-gray-800">
             All categories
           </button>
           <button
             type="button"
-            class="text-gray-700 hover:text-white border border-gray-600 bg-white hover:bg-gray-700 focus:ring-4 focus:outline-none focus:ring-gray-300 rounded-full text-sm font-medium px-5 py-2 text-center me-3 mb-2 dark:border-gray-500 dark:text-gray-500 dark:hover:text-white dark:hover:bg-gray-500 dark:bg-gray-900 dark:focus:ring-gray-800">
+            className="text-gray-700 hover:text-white border border-gray-600 bg-white hover:bg-gray-700 focus:ring-4 focus:outline-none focus:ring-gray-300 rounded-full text-sm font-medium px-5 py-2 text-center me-3 mb-2 dark:border-gray-500 dark:text-gray-500 dark:hover:text-white dark:hover:bg-gray-500 dark:bg-gray-900 dark:focus:ring-gray-800">
             Shoes
           </button>
           <button
             type="button"
-            class="text-gray-700 hover:text-white border border-gray-600 bg-white hover:bg-gray-700 focus:ring-4 focus:outline-none focus:ring-gray-300 rounded-full text-sm font-medium px-5 py-2 text-center me-3 mb-2 dark:border-gray-500 dark:text-gray-500 dark:hover:text-white dark:hover:bg-gray-500 dark:bg-gray-900 dark:focus:ring-gray-800">
+            className="text-gray-700 hover:text-white border border-gray-600 bg-white hover:bg-gray-700 focus:ring-4 focus:outline-none focus:ring-gray-300 rounded-full text-sm font-medium px-5 py-2 text-center me-3 mb-2 dark:border-gray-500 dark:text-gray-500 dark:hover:text-white dark:hover:bg-gray-500 dark:bg-gray-900 dark:focus:ring-gray-800">
             Bags
           </button>
           <button
             type="button"
-            class="text-gray-700 hover:text-white border border-gray-600 bg-white hover:bg-gray-700 focus:ring-4 focus:outline-none focus:ring-gray-300 rounded-full text-sm font-medium px-5 py-2 text-center me-3 mb-2 dark:border-gray-500 dark:text-gray-500 dark:hover:text-white dark:hover:bg-gray-500 dark:bg-gray-900 dark:focus:ring-gray-800">
+            className="text-gray-700 hover:text-white border border-gray-600 bg-white hover:bg-gray-700 focus:ring-4 focus:outline-none focus:ring-gray-300 rounded-full text-sm font-medium px-5 py-2 text-center me-3 mb-2 dark:border-gray-500 dark:text-gray-500 dark:hover:text-white dark:hover:bg-gray-500 dark:bg-gray-900 dark:focus:ring-gray-800">
             Electronics
           </button>
           <button
             type="button"
-            class="text-gray-700 hover:text-white border border-gray-600 bg-white hover:bg-gray-700 focus:ring-4 focus:outline-none focus:ring-gray-300 rounded-full text-sm font-medium px-5 py-2 text-center me-3 mb-2 dark:border-gray-500 dark:text-gray-500 dark:hover:text-white dark:hover:bg-gray-500 dark:bg-gray-900 dark:focus:ring-gray-800">
+            className="text-gray-700 hover:text-white border border-gray-600 bg-white hover:bg-gray-700 focus:ring-4 focus:outline-none focus:ring-gray-300 rounded-full text-sm font-medium px-5 py-2 text-center me-3 mb-2 dark:border-gray-500 dark:text-gray-500 dark:hover:text-white dark:hover:bg-gray-500 dark:bg-gray-900 dark:focus:ring-gray-800">
             Gaming
           </button>
         </div>
-        <div className="flex flex-row">
-          <div className="grid md:grid-cols-2 grid-cols-1 gap-2 w-full">
-            <div className="grid grid-rows-2 gap-2 w-full ">
-              <div className="text-left py-6 px-8 bg-gray-900 rounded-xl dark:bg-gray-200">
-                <h2 className="pt-6 pb-2 font-bold text-3xl text-white dark:text-black">
-                  ✨ Trending Products ✨
-                </h2>
-                <h2 className="font-medium text-md text-white dark:text-black">
-                  Loved by eco-friendly enthusiasts.
-                </h2>
+        <div className="flex flex-col gap-4">
+          {/* First row */}
+          <div className="flex flex-row">
+            <div className="grid md:grid-cols-2 grid-cols-1 gap-4 w-full">
+              <div className="grid grid-rows-2 gap-4 w-full ">
+                <div className="bg-[#f6f6f6] rounded-xl flex flex-row justify-between items-center border-black border-2 dark:border-0 ">
+                  <div className="pl-3">
+                    <img
+                      className="w-40 h-40 mb-4 rounded-lg object-cover"
+                      src="https://images.unsplash.com/photo-1583394838336-acd977736f90?q=80&w=1884&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                      alt=""
+                    />
+                  </div>
+                  <div className="text-left px-auto flex flex-col justify-center">
+                    <h2 className="font-bold text-3xl pl-6 pr-8 text-black">
+                      Creative Indulgence
+                    </h2>
+                  </div>
+                </div>
+                <div className="bg-[#131313] rounded-xl flex flex-row justify-between items-center dark: border-white dark: border-2">
+                  <div className="text-left px-auto flex flex-col justify-center">
+                    <h2 className="font-bold text-3xl px-8 text-white">
+                      Comfort Design
+                    </h2>
+                  </div>
+                  <div className="pr-12 p-6 ">
+                    <img
+                      className="w-32 h-32 rounded-lg object-cover"
+                      src="https://images.unsplash.com/photo-1608231387042-66d1773070a5?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8c2hvZXxlbnwwfHwwfHx8MA%3D%3D"
+                      alt=""
+                    />
+                  </div>
+                </div>
               </div>
-              <div className="p-12 bg-gray-700 rounded-xl dark:bg-gray-200">
-                <h2 className="pt-3 font-bold text-4xl text-white">
-                  Get Up to 80% Off! 🏷️
-                </h2>
+              <div className="grid grid-cols-2 gap-4">
+                <div className="flex">
+                  <img
+                    className="max-w-full rounded-lg object-cover"
+                    src="https://flowbite.s3.amazonaws.com/docs/gallery/masonry/image.jpg"
+                    alt=""
+                  />
+                </div>
+                <div className="flex">
+                  <img
+                    className="max-w-full rounded-lg object-cover"
+                    src="https://flowbite.s3.amazonaws.com/docs/gallery/masonry/image-6.jpg"
+                    alt=""
+                  />
+                </div>
               </div>
             </div>
-            <div className="grid grid-cols-2 gap-2">
-              <div>
+          </div>
+          {/* Second row */}
+          <div className="flex flex-row">
+            <div className="grid md:grid-cols-2 grid-cols-1 gap-4 w-full">
+              <div className="grid grid-cols-1 gap-4">
+                <div className="flex">
+                  <img
+                    className="max-w-full rounded-lg object-cover"
+                    src="https://flowbite.s3.amazonaws.com/docs/gallery/masonry/image-11.jpg"
+                    alt=""
+                  />
+                </div>
+              </div>
+              <div className="grid grid-rows-2 gap-4 w-full ">
+                <div className="text-left py-6 px-8 bg-gray-900 rounded-xl dark:bg-gray-200 flex flex-col justify-center">
+                  <h2 className="font-bold text-3xl text-white dark:text-black">
+                    ✨ Trending Products ✨
+                  </h2>
+                  <h2 className="font-medium text-md text-white dark:text-black">
+                    Loved by eco-friendly enthusiasts.
+                  </h2>
+                </div>
+                <div className="p-8 bg-gray-700 rounded-xl dark:bg-gray-200 flex flex-col justify-center">
+                  <h2 className="font-bold text-3xl text-white dark:text-gray-900">
+                    Get Up to 80% Off! 🏷️
+                  </h2>
+                </div>
+              </div>
+            </div>
+          </div>
+          {/* Third Row */}
+          <div className="flex flex-row">
+            <div className="grid md:grid-cols-3 grid-cols-1 gap-4 w-full">
+              <div className="relative isolate flex flex-col justify-end overflow-hidden rounded-2xl px-6 pb-8 pt-48 w-full">
                 <img
-                  class="max-w-full rounded-lg object-cover"
-                  src="https://flowbite.s3.amazonaws.com/docs/gallery/masonry/image.jpg"
+                  className="w-full h-full rounded-lg object-cover absolute inset-0"
+                  src="https://flowbite.s3.amazonaws.com/docs/gallery/masonry/image-4.jpg"
                   alt=""
                 />
+                <h3 className="z-10 mt-3 ml-2 text-2xl font-bold text-black">
+                  Wrist <br /> Watch
+                </h3>
               </div>
-              <div>
-                <img
-                  class="max-w-full rounded-lg object-cover"
-                  src="https://flowbite.s3.amazonaws.com/docs/gallery/masonry/image.jpg"
-                  alt=""
-                />
+              <div className="text-center py-6 px-8 bg-gray-900 rounded-xl dark:bg-gray-200 flex flex-col justify-center w-full gap-2">
+                <h2 className="font-semibold text-5xl text-white dark:text-black">
+                  Wear
+                  <br />
+                  with
+                </h2>
+                <h2 className="font-semibold text-5xl italic underline text-amber-400 dark:text-gray-500">
+                  Style
+                </h2>
+                <h2 className="font-mediun text-xs py-3 text-gray-400 dark:text-gray-700">
+                  Fashion from chic shoes and stylish tops to cozy outerwear. We
+                  have it all, responsibly made from recycled materials and
+                  sustainable methods.
+                </h2>
               </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="grid grid-cols-2 md:grid-cols-4 gap-4 my-8">
-          <div class="grid gap-4">
-            <div>
-              <img
-                class="h-auto max-w-full rounded-lg"
-                src="https://flowbite.s3.amazonaws.com/docs/gallery/masonry/image.jpg"
-                alt=""
-              />
-            </div>
-            <div>
-              <img
-                class="h-auto max-w-full rounded-lg"
-                src="https://flowbite.s3.amazonaws.com/docs/gallery/masonry/image-1.jpg"
-                alt=""
-              />
-            </div>
-            <div>
-              <img
-                class="h-auto max-w-full rounded-lg"
-                src="https://flowbite.s3.amazonaws.com/docs/gallery/masonry/image-2.jpg"
-                alt=""
-              />
-            </div>
-          </div>
-          <div class="grid gap-4">
-            <div>
-              <img
-                class="h-auto max-w-full rounded-lg"
-                src="https://flowbite.s3.amazonaws.com/docs/gallery/masonry/image-3.jpg"
-                alt=""
-              />
-            </div>
-            <div>
-              <img
-                class="h-auto max-w-full rounded-lg"
-                src="https://flowbite.s3.amazonaws.com/docs/gallery/masonry/image-4.jpg"
-                alt=""
-              />
-            </div>
-            <div>
-              <img
-                class="h-auto max-w-full rounded-lg"
-                src="https://flowbite.s3.amazonaws.com/docs/gallery/masonry/image-5.jpg"
-                alt=""
-              />
-            </div>
-          </div>
-          <div class="grid gap-4">
-            <div>
-              <img
-                class="h-auto max-w-full rounded-lg"
-                src="https://flowbite.s3.amazonaws.com/docs/gallery/masonry/image-6.jpg"
-                alt=""
-              />
-            </div>
-            <div>
-              <img
-                class="h-auto max-w-full rounded-lg"
-                src="https://flowbite.s3.amazonaws.com/docs/gallery/masonry/image-7.jpg"
-                alt=""
-              />
-            </div>
-            <div>
-              <img
-                class="h-auto max-w-full rounded-lg"
-                src="https://flowbite.s3.amazonaws.com/docs/gallery/masonry/image-8.jpg"
-                alt=""
-              />
-            </div>
-          </div>
-          <div class="grid gap-4">
-            <div>
-              <img
-                class="h-auto max-w-full rounded-lg"
-                src="https://flowbite.s3.amazonaws.com/docs/gallery/masonry/image-9.jpg"
-                alt=""
-              />
-            </div>
-            <div>
-              <img
-                class="h-auto max-w-full rounded-lg"
-                src="https://flowbite.s3.amazonaws.com/docs/gallery/masonry/image-10.jpg"
-                alt=""
-              />
-            </div>
-            <div>
-              <img
-                class="h-auto max-w-full rounded-lg"
-                src="https://flowbite.s3.amazonaws.com/docs/gallery/masonry/image-11.jpg"
-                alt=""
-              />
+              <div className="grid grid-cols-2 gap-4">
+                <div className="flex">
+                  <img
+                    className="max-w-full rounded-lg object-cover"
+                    src="https://flowbite.s3.amazonaws.com/docs/gallery/masonry/image-10.jpg"
+                    alt=""
+                  />
+                </div>
+                <div className="flex">
+                  <img
+                    className="max-w-full rounded-lg object-cover"
+                    src="https://flowbite.s3.amazonaws.com/docs/gallery/masonry/image-3.jpg"
+                    alt=""
+                  />
+                </div>
+              </div>
             </div>
           </div>
         </div>
       </section>
-      <section>
+      {/* <section>
         <header>
           <h2 className="mb-3 mt-9 text-4xl font-bold dark:text-gray-200">
             List group
@@ -278,7 +274,7 @@ export const HomePageContent = function () {
           </h2>
         </header>
         <TimelineExample />
-      </section>
+      </section> */}
       <section>
         <FooterExample />
       </section>
@@ -301,8 +297,7 @@ const AccordionExample = function () {
             Check out this guide to learn how to&nbsp;
             <a
               href="https://flowbite.com/docs/getting-started/introduction/"
-              className="text-blue-600 hover:underline dark:text-blue-500"
-            >
+              className="text-blue-600 hover:underline dark:text-blue-500">
               get started
             </a>
             &nbsp;and start developing websites even faster with components on
@@ -322,8 +317,7 @@ const AccordionExample = function () {
             Check out the&nbsp;
             <a
               href="https://flowbite.com/figma/"
-              className="text-blue-600 hover:underline dark:text-blue-500"
-            >
+              className="text-blue-600 hover:underline dark:text-blue-500">
               Figma design system
             </a>
             &nbsp;based on the utility classes from Tailwind CSS and components
@@ -354,8 +348,7 @@ const AccordionExample = function () {
             <li>
               <a
                 href="https://flowbite.com/pro/"
-                className="text-blue-600 hover:underline dark:text-blue-500"
-              >
+                className="text-blue-600 hover:underline dark:text-blue-500">
                 Flowbite Pro
               </a>
             </li>
@@ -363,8 +356,7 @@ const AccordionExample = function () {
               <a
                 href="https://tailwindui.com/"
                 rel="nofollow"
-                className="text-blue-600 hover:underline dark:text-blue-500"
-              >
+                className="text-blue-600 hover:underline dark:text-blue-500">
                 Tailwind UI
               </a>
             </li>
@@ -392,21 +384,18 @@ const AlertsExample = function () {
           <div className="flex">
             <button
               type="button"
-              className="mr-2 inline-flex items-center rounded-lg bg-green-700 px-3 py-1.5 text-center text-xs font-medium text-white hover:bg-green-800 focus:ring-4 focus:ring-green-300 dark:bg-green-800 dark:hover:bg-green-900"
-            >
+              className="mr-2 inline-flex items-center rounded-lg bg-green-700 px-3 py-1.5 text-center text-xs font-medium text-white hover:bg-green-800 focus:ring-4 focus:ring-green-300 dark:bg-green-800 dark:hover:bg-green-900">
               <HiEye className="-ml-0.5 mr-2 h-4 w-4" />
               View more
             </button>
             <button
               type="button"
-              className="rounded-lg border border-green-700 bg-transparent px-3 py-1.5 text-center text-xs font-medium text-green-700 hover:bg-green-800 hover:text-white focus:ring-4 focus:ring-green-300 dark:border-green-800 dark:text-green-800 dark:hover:text-white"
-            >
+              className="rounded-lg border border-green-700 bg-transparent px-3 py-1.5 text-center text-xs font-medium text-green-700 hover:bg-green-800 hover:text-white focus:ring-4 focus:ring-green-300 dark:border-green-800 dark:text-green-800 dark:hover:text-white">
               Dismiss
             </button>
           </div>
         </React.Fragment>
-      }
-    >
+      }>
       <h3 className="text-lg font-medium text-green-700 dark:text-green-800">
         This is a info alert
       </h3>
@@ -465,17 +454,14 @@ const ButtonGroupExample = function () {
   );
 };
 
-const ImageCard = function ({imgsrc, title, description}) {
+const ImageCard = function ({ imgsrc, title, description }) {
   return (
     <div className="w-full">
-      <div class="relative isolate flex flex-col justify-end overflow-hidden rounded-2xl px-8 pb-12 pt-36 w-full">
-        <img
-          src={imgsrc}
-          class="absolute inset-0 h-full w-full object-cover"
-        />
-        <div class="absolute inset-0 bg-gradient-to-t from-gray-900 via-gray-900/40"></div>
-        <h3 class="z-10 mt-3 ml-8 text-3xl font-bold text-white">{title}</h3>
-        <div class="z-10 ml-8 gap-y-1 overflow-hidden text-sm leading-6 text-gray-300">
+      <div className="relative isolate flex flex-col justify-end overflow-hidden rounded-2xl px-8 pb-12 pt-36 w-full">
+        <img src={imgsrc} className="absolute inset-0 h-full w-full object-cover" />
+        <div className="absolute inset-0 bg-gradient-to-t from-gray-900 via-gray-900/40"></div>
+        <h3 className="z-10 mt-3 ml-8 text-3xl font-bold text-white">{title}</h3>
+        <div className="z-10 ml-8 gap-y-1 overflow-hidden text-sm leading-6 text-gray-300">
           {description}
         </div>
       </div>
@@ -635,10 +621,7 @@ const NavbarsExample = function () {
       <div className="flex md:order-2">
         <Dropdown
           inline
-          label={
-            <Avatar alt="User settings" img="/next.svg" rounded />
-          }
-        >
+          label={<Avatar alt="User settings" img="/next.svg" rounded />}>
           <Dropdown.Header>
             <span className="block text-sm">Bonnie Green</span>
             <span className="block truncate text-sm font-medium">
@@ -741,8 +724,7 @@ const SidebarExample = function () {
                 href="#"
                 icon={HiViewBoards}
                 label="Pro"
-                labelColor="gray"
-              >
+                labelColor="gray">
                 Kanban
               </Sidebar.Item>
               <Sidebar.Item href="#" icon={HiInbox} label="3">
@@ -791,8 +773,7 @@ const TablesExample = function () {
           <Table.Cell>
             <a
               href="/tables"
-              className="font-medium text-blue-600 hover:underline dark:text-blue-500"
-            >
+              className="font-medium text-blue-600 hover:underline dark:text-blue-500">
               Edit
             </a>
           </Table.Cell>
@@ -807,8 +788,7 @@ const TablesExample = function () {
           <Table.Cell>
             <a
               href="/tables"
-              className="font-medium text-blue-600 hover:underline dark:text-blue-500"
-            >
+              className="font-medium text-blue-600 hover:underline dark:text-blue-500">
               Edit
             </a>
           </Table.Cell>
@@ -823,8 +803,7 @@ const TablesExample = function () {
           <Table.Cell>
             <a
               href="/tables"
-              className="font-medium text-blue-600 hover:underline dark:text-blue-500"
-            >
+              className="font-medium text-blue-600 hover:underline dark:text-blue-500">
               Edit
             </a>
           </Table.Cell>
@@ -839,8 +818,7 @@ const TablesExample = function () {
           <Table.Cell>
             <a
               href="/tables"
-              className="font-medium text-blue-600 hover:underline dark:text-blue-500"
-            >
+              className="font-medium text-blue-600 hover:underline dark:text-blue-500">
               Edit
             </a>
           </Table.Cell>
@@ -855,8 +833,7 @@ const TablesExample = function () {
           <Table.Cell>
             <a
               href="/tables"
-              className="font-medium text-blue-600 hover:underline dark:text-blue-500"
-            >
+              className="font-medium text-blue-600 hover:underline dark:text-blue-500">
               Edit
             </a>
           </Table.Cell>
