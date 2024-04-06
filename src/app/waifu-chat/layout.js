@@ -19,12 +19,12 @@ const DashboardLayoutContent = function ({ children }) {
   return (
     <>
       <DashboardNavbar />
-      <div className="mt-16 flex items-start">
+      <div className="mt-16 flex items-start w-[90vw] h-[80vh]">
         <DashboardSidebar />
         <div
-          id="main-content"
+          // id="main-content"
           className={twMerge(
-            "relative h-full w-full overflow-y-auto bg-gray-50 dark:bg-gray-900",
+            "flex bg-gray-50 dark:bg-gray-900 h-[100%] w-[100%]",
             isCollapsed ? "lg:ml-[4.5rem]" : "lg:ml-64",
           )}
         >

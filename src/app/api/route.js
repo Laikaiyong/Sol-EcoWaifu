@@ -6,6 +6,7 @@ export async function GET(
   req,
 ) {
   const roomId = req.nextUrl.searchParams.get("roomId");
+  const listen = req.nextUrl.searchParams.get("listen");
   const accessToken = new AccessToken({
     apiKey: process.env.HUDDLE_API_KEY,
     roomId: roomId,
@@ -26,10 +27,21 @@ export async function GET(
   });
 
   const token = await accessToken.toJwt();
-  cookies().set({
-    name: 'huddle-jwt',
-    value: token
-  })
+
+  if (listen == "true")
+  {
+
+    cookies().set({
+      name: 'huddle-listen-jwt',
+      value: token
+    })
+  } else {
+
+    cookies().set({
+      name: 'huddle-jwt',
+      value: token
+    })
+  }
 
   return Response.json(token);
 }

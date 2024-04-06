@@ -29,18 +29,23 @@ export const DashboardSidebar = function () {
           <Sidebar.Item href="/" icon={HiChartPie}>
             Home
           </Sidebar.Item>
-          <Sidebar.Item href="/products" icon={HiShoppingBag}>
-            Products
-          </Sidebar.Item>
           <Sidebar.Item href="/nft" icon={HiSparkles}>
             NFTs
+          </Sidebar.Item>
+          <Sidebar.Item href="/products" icon={HiShoppingBag}>
+            Products
           </Sidebar.Item>
           <Sidebar.Item href="/transact" icon={HiInbox}>
             Transactions
           </Sidebar.Item>
-          <Sidebar.Item href="/livestream" icon={HiStatusOnline}>
-            Livestream
+          <Sidebar.Collapse label="Livestream" icon={HiStatusOnline}>
+          <Sidebar.Item href="/livestream/host">
+            Host
           </Sidebar.Item>
+          <Sidebar.Item href="/livestream/listen">
+            Listen
+          </Sidebar.Item>
+          </Sidebar.Collapse>
         </Sidebar.ItemGroup>
       </Sidebar.Items>
     </Sidebar>

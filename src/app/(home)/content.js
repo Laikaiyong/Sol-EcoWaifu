@@ -5,7 +5,6 @@ import {
   Alert,
   Avatar,
   Badge,
-  Breadcrumb,
   Button,
   Card,
   Carousel,
@@ -20,13 +19,9 @@ import {
   Progress,
   Rating,
   Sidebar,
-  Spinner,
   Table,
-  Tabs,
   TextInput,
   Timeline,
-  Toast,
-  Tooltip,
 } from "flowbite-react";
 import Image from "next/image";
 import React, { useState, useEffect } from "react";
@@ -68,104 +63,194 @@ export const HomePageContent = function () {
     <div className="p-6">
       <section>
         <header>
-          <h1 className="mb-6 text-5xl font-extrabold dark:text-white">
-            Welcome to <code>Flowbite</code> on <code>Next.js</code>!
+          <h1 className="mb-6 mt-2 text-5xl font-bold dark:text-white text-black">
+            Dashboard
           </h1>
         </header>
       </section>
       <section>
         <header>
-          <h2 className="mb-3 text-4xl font-bold dark:text-gray-200">Alert</h2>
-        </header>
-        <AlertsExample />
-      </section>
-      <section>
-        <header>
-          <h2 className="mb-3 mt-9 text-4xl font-bold dark:text-gray-200">
-            Accordion
+          <h2 className="mb-3 text-lg font-medium text-black dark:text-gray-200">
+            Welcome back to Waifu Haven
           </h2>
         </header>
-        <AccordionExample />
+        {/* <AlertsExample /> */}
       </section>
+
       <section>
         <header>
-          <h2 className="mb-3 mt-9 text-4xl font-bold dark:text-gray-200">
-            Avatar
+          <h2 className="mb-3 mt-9 text-3xl font-bold dark:text-gray-200 text-black">
+            Trending Topics 🔥
           </h2>
         </header>
-        <AvatarExample />
-      </section>
-      <section>
-        <header>
-          <h2 className="mb-3 mt-9 text-4xl font-bold dark:text-gray-200">
-            Badges
-          </h2>
-        </header>
-        <BadgesExample />
-      </section>
-      <section>
-        <header>
-          <h2 className="mb-3 mt-9 text-4xl font-bold dark:text-gray-200">
-            Breadcrumb
-          </h2>
-        </header>
-        <BreadcrumbExample />
-      </section>
-      <section>
-        <header>
-          <h2 className="mb-3 mt-9 text-4xl font-bold dark:text-gray-200">
-            Buttons
-          </h2>
-        </header>
-        <ButtonsExample />
-      </section>
-      <section>
-        <header>
-          <h2 className="mb-3 mt-9 text-4xl font-bold dark:text-gray-200">
-            Button group
-          </h2>
-        </header>
-        <ButtonGroupExample />
-      </section>
-      <section>
-        <header>
-          <h2 className="mb-3 mt-9 text-4xl font-bold dark:text-gray-200">
-            Card
-          </h2>
-        </header>
-        <CardExample />
-      </section>
-      <section>
-        <header>
-          <h2 className="mb-3 mt-9 text-4xl font-bold dark:text-gray-200">
-            Carousel
-          </h2>
-        </header>
+        <div className="mb-4 font-medium text-black dark:text-gray-200">
+          Follow more to understand how businesses are using Sol-EcoWaifu.
+        </div>
         <CarouselExample />
       </section>
       <section>
         <header>
-          <h2 className="mb-3 mt-9 text-4xl font-bold dark:text-gray-200">
-            Dropdown
+          <h2 className="mb-3 mt-9 text-3xl font-bold dark:text-gray-200 text-black">
+            Discover more
           </h2>
         </header>
-        <DropdownExample />
-      </section>
-      <section>
-        <header>
-          <h2 className="mb-3 mt-9 text-4xl font-bold dark:text-gray-200">
-            Forms
-          </h2>
-        </header>
-        <FormsExample />
-      </section>
-      <section>
-        <header>
-          <h2 className="mb-3 mt-9 text-4xl font-bold dark:text-gray-200">
-            Footer
-          </h2>
-        </header>
-        <FooterExample />
+        <div class="flex items-center justify-center py-4 md:py-8 flex-wrap">
+          <button
+            type="button"
+            class="text-gray-700 hover:text-white border border-gray-600 bg-white hover:bg-gray-700 focus:ring-4 focus:outline-none focus:ring-gray-300 rounded-full text-base font-medium px-5 py-2.5 text-center me-3 mb-3 dark:border-gray-500 dark:text-gray-500 dark:hover:text-white dark:hover:bg-gray-500 dark:bg-gray-900 dark:focus:ring-gray-800">
+            All categories
+          </button>
+          <button
+            type="button"
+            class="text-gray-700 hover:text-white border border-gray-600 bg-white hover:bg-gray-700 focus:ring-4 focus:outline-none focus:ring-gray-300 rounded-full text-base font-medium px-5 py-2.5 text-center me-3 mb-3 dark:border-gray-500 dark:text-gray-500 dark:hover:text-white dark:hover:bg-gray-500 dark:bg-gray-900 dark:focus:ring-gray-800">
+            Shoes
+          </button>
+          <button
+            type="button"
+            class="text-gray-900 border border-white hover:border-gray-200 dark:border-gray-900 dark:bg-gray-900 dark:hover:border-gray-700 bg-white focus:ring-4 focus:outline-none focus:ring-gray-300 rounded-full text-base font-medium px-5 py-2.5 text-center me-3 mb-3 dark:text-white dark:focus:ring-gray-800">
+            Bags
+          </button>
+          <button
+            type="button"
+            class="text-gray-900 border border-white hover:border-gray-200 dark:border-gray-900 dark:bg-gray-900 dark:hover:border-gray-700 bg-white focus:ring-4 focus:outline-none focus:ring-gray-300 rounded-full text-base font-medium px-5 py-2.5 text-center me-3 mb-3 dark:text-white dark:focus:ring-gray-800">
+            Electronics
+          </button>
+          <button
+            type="button"
+            class="text-gray-900 border border-white hover:border-gray-200 dark:border-gray-900 dark:bg-gray-900 dark:hover:border-gray-700 bg-white focus:ring-4 focus:outline-none focus:ring-gray-300 rounded-full text-base font-medium px-5 py-2.5 text-center me-3 mb-3 dark:text-white dark:focus:ring-gray-800">
+            Gaming
+          </button>
+        </div>
+        <div className="flex flex-row">
+          <div className="grid md:grid-cols-2 grid-cols-1 gap-2 w-full">
+            <div className="grid grid-rows-2 gap-2 w-full ">
+              <div className="text-left py-6 px-8 bg-gray-900 rounded-xl dark:bg-gray-200">
+                <h2 className="pt-6 pb-2 font-bold text-3xl text-white dark:text-black">
+                  ✨ Trending Products ✨
+                </h2>
+                <h2 className="font-medium text-md text-white dark:text-black">
+                  Loved by eco-friendly enthusiasts.
+                </h2>
+              </div>
+              <div className="p-12 bg-gray-700 rounded-xl dark:bg-gray-200">
+                <h2 className="pt-3 font-bold text-4xl text-white">
+                  Get Up to 80% Off! 🏷️
+                </h2>
+              </div>
+            </div>
+            <div className="grid grid-cols-2 gap-2">
+              <div>
+                <img
+                  class="max-w-full rounded-lg object-cover"
+                  src="https://flowbite.s3.amazonaws.com/docs/gallery/masonry/image.jpg"
+                  alt=""
+                />
+              </div>
+              <div>
+                <img
+                  class="max-w-full rounded-lg object-cover"
+                  src="https://flowbite.s3.amazonaws.com/docs/gallery/masonry/image.jpg"
+                  alt=""
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-4 my-8">
+          <div class="grid gap-4">
+            <div>
+              <img
+                class="h-auto max-w-full rounded-lg"
+                src="https://flowbite.s3.amazonaws.com/docs/gallery/masonry/image.jpg"
+                alt=""
+              />
+            </div>
+            <div>
+              <img
+                class="h-auto max-w-full rounded-lg"
+                src="https://flowbite.s3.amazonaws.com/docs/gallery/masonry/image-1.jpg"
+                alt=""
+              />
+            </div>
+            <div>
+              <img
+                class="h-auto max-w-full rounded-lg"
+                src="https://flowbite.s3.amazonaws.com/docs/gallery/masonry/image-2.jpg"
+                alt=""
+              />
+            </div>
+          </div>
+          <div class="grid gap-4">
+            <div>
+              <img
+                class="h-auto max-w-full rounded-lg"
+                src="https://flowbite.s3.amazonaws.com/docs/gallery/masonry/image-3.jpg"
+                alt=""
+              />
+            </div>
+            <div>
+              <img
+                class="h-auto max-w-full rounded-lg"
+                src="https://flowbite.s3.amazonaws.com/docs/gallery/masonry/image-4.jpg"
+                alt=""
+              />
+            </div>
+            <div>
+              <img
+                class="h-auto max-w-full rounded-lg"
+                src="https://flowbite.s3.amazonaws.com/docs/gallery/masonry/image-5.jpg"
+                alt=""
+              />
+            </div>
+          </div>
+          <div class="grid gap-4">
+            <div>
+              <img
+                class="h-auto max-w-full rounded-lg"
+                src="https://flowbite.s3.amazonaws.com/docs/gallery/masonry/image-6.jpg"
+                alt=""
+              />
+            </div>
+            <div>
+              <img
+                class="h-auto max-w-full rounded-lg"
+                src="https://flowbite.s3.amazonaws.com/docs/gallery/masonry/image-7.jpg"
+                alt=""
+              />
+            </div>
+            <div>
+              <img
+                class="h-auto max-w-full rounded-lg"
+                src="https://flowbite.s3.amazonaws.com/docs/gallery/masonry/image-8.jpg"
+                alt=""
+              />
+            </div>
+          </div>
+          <div class="grid gap-4">
+            <div>
+              <img
+                class="h-auto max-w-full rounded-lg"
+                src="https://flowbite.s3.amazonaws.com/docs/gallery/masonry/image-9.jpg"
+                alt=""
+              />
+            </div>
+            <div>
+              <img
+                class="h-auto max-w-full rounded-lg"
+                src="https://flowbite.s3.amazonaws.com/docs/gallery/masonry/image-10.jpg"
+                alt=""
+              />
+            </div>
+            <div>
+              <img
+                class="h-auto max-w-full rounded-lg"
+                src="https://flowbite.s3.amazonaws.com/docs/gallery/masonry/image-11.jpg"
+                alt=""
+              />
+            </div>
+          </div>
+        </div>
       </section>
       <section>
         <header>
@@ -175,62 +260,7 @@ export const HomePageContent = function () {
         </header>
         <ListGroupExample />
       </section>
-      <section>
-        <header>
-          <h2 className="mb-3 mt-9 text-4xl font-bold dark:text-gray-200">
-            Modal
-          </h2>
-        </header>
-        <ModalExample />
-      </section>
-      <section>
-        <header>
-          <h2 className="mb-3 mt-9 text-4xl font-bold dark:text-gray-200">
-            Navbars
-          </h2>
-        </header>
-        <NavbarsExample />
-      </section>
-      <section>
-        <header>
-          <h2 className="mb-3 mt-9 text-4xl font-bold dark:text-gray-200">
-            Pagination
-          </h2>
-        </header>
-        <PaginationExample />
-      </section>
-      <section>
-        <header>
-          <h2 className="mb-3 mt-9 text-4xl font-bold dark:text-gray-200">
-            Progress
-          </h2>
-        </header>
-        <ProgressExample />
-      </section>
-      <section>
-        <header>
-          <h2 className="mb-3 mt-9 text-4xl font-bold dark:text-gray-200">
-            Rating
-          </h2>
-        </header>
-        <RatingExample />
-      </section>
-      <section>
-        <header>
-          <h2 className="mb-3 mt-9 text-4xl font-bold dark:text-gray-200">
-            Sidebar
-          </h2>
-        </header>
-        <SidebarExample />
-      </section>
-      <section>
-        <header>
-          <h2 className="mb-3 mt-9 text-4xl font-bold dark:text-gray-200">
-            Spinners
-          </h2>
-        </header>
-        <SpinnersExample />
-      </section>
+
       <section>
         <header>
           <h2 className="mb-3 mt-9 text-4xl font-bold dark:text-gray-200">
@@ -243,35 +273,14 @@ export const HomePageContent = function () {
       </section>
       <section>
         <header>
-          <h2 className="mb-3 mt-9 text-4xl font-bold dark:text-gray-200">
-            Tabs
-          </h2>
-        </header>
-        <TabsExample />
-      </section>
-      <section>
-        <header>
-          <h2 className="mb-3 mt-9 text-4xl font-bold dark:text-gray-200">
+          <h2 className="mb-3 mt-9 text-4xl text-black font-bold dark:text-gray-200">
             Timeline
           </h2>
         </header>
         <TimelineExample />
       </section>
       <section>
-        <header>
-          <h2 className="mb-3 mt-9 text-4xl font-bold dark:text-gray-200">
-            Toast
-          </h2>
-        </header>
-        <ToastExample />
-      </section>
-      <section>
-        <header>
-          <h2 className="mb-3 mt-9 text-4xl font-bold dark:text-gray-200">
-            Tooltips
-          </h2>
-        </header>
-        <TooltipsExample />
+        <FooterExample />
       </section>
     </div>
   );
@@ -440,46 +449,6 @@ const BadgesExample = function () {
   );
 };
 
-const BreadcrumbExample = function () {
-  return (
-    <Breadcrumb aria-label="Default breadcrumb example">
-      <Breadcrumb.Item href="#" icon={HiHome}>
-        Home
-      </Breadcrumb.Item>
-      <Breadcrumb.Item href="#">Projects</Breadcrumb.Item>
-      <Breadcrumb.Item>Flowbite React</Breadcrumb.Item>
-    </Breadcrumb>
-  );
-};
-
-const ButtonsExample = function () {
-  return (
-    <div className="flex flex-wrap items-center gap-2">
-      <Button outline gradientDuoTone="purpleToBlue">
-        Purple to blue
-      </Button>
-      <Button outline gradientDuoTone="cyanToBlue">
-        Cyan to blue
-      </Button>
-      <Button outline gradientDuoTone="greenToBlue">
-        Green to blue
-      </Button>
-      <Button outline gradientDuoTone="purpleToPink">
-        Purple to pink
-      </Button>
-      <Button outline gradientDuoTone="pinkToOrange">
-        Pink to orange
-      </Button>
-      <Button outline gradientDuoTone="tealToLime">
-        Teal to lime
-      </Button>
-      <Button outline gradientDuoTone="redToYellow">
-        Red to yellow
-      </Button>
-    </div>
-  );
-};
-
 const ButtonGroupExample = function () {
   return (
     <Button.Group>
@@ -496,21 +465,20 @@ const ButtonGroupExample = function () {
   );
 };
 
-const CardExample = function () {
+const ImageCard = function ({imgsrc, title, description}) {
   return (
-    <div className="max-w-sm">
-      <Card
-        imgAlt="Meaningful alt text for an image that is not purely decorative"
-        imgSrc="/vercel.svg"
-      >
-        <h5 className="text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
-          Noteworthy technology acquisitions 2021
-        </h5>
-        <p className="font-normal text-gray-700 dark:text-gray-400">
-          Here are the biggest enterprise technology acquisitions of 2021 so
-          far, in reverse chronological order.
-        </p>
-      </Card>
+    <div className="w-full">
+      <div class="relative isolate flex flex-col justify-end overflow-hidden rounded-2xl px-8 pb-12 pt-36 w-full">
+        <img
+          src={imgsrc}
+          class="absolute inset-0 h-full w-full object-cover"
+        />
+        <div class="absolute inset-0 bg-gradient-to-t from-gray-900 via-gray-900/40"></div>
+        <h3 class="z-10 mt-3 ml-8 text-3xl font-bold text-white">{title}</h3>
+        <div class="z-10 ml-8 gap-y-1 overflow-hidden text-sm leading-6 text-gray-300">
+          {description}
+        </div>
+      </div>
     </div>
   );
 };
@@ -519,12 +487,21 @@ const CarouselExample = function () {
   return (
     <div className="h-56 sm:h-64 xl:h-80 2xl:h-96">
       <Carousel>
-        {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img alt="" src="/vercel.svg" />
-        {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img alt="" src="/next.svg" />
-        {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img alt="" src="/vercel.svg" />
+        <ImageCard
+          imgsrc="https://image.winudf.com/v2/image1/Y29tLnZpdmlkZ2FtZXMucmlnaHQuc3dpcGVzLmhvdC5kYXRlc19iYW5uZXJfMTY2NzE1Njc5OV8wOTM/banner.jpg?fakeurl=1&w=600"
+          title="Waifu World"
+          description="Collect unique waifus"
+        />
+        <ImageCard
+          imgsrc="https://as2.ftcdn.net/v2/jpg/05/91/59/03/1000_F_591590377_LfCWqoLku8pipcwrzOMpXHMqm4tXMz7V.jpg"
+          title="Eco-friendly products"
+          description="Safe the earth one waifu at a time"
+        />
+        <ImageCard
+          imgsrc="https://w0.peakpx.com/wallpaper/437/587/HD-wallpaper-anime-girl-uniform-nature-background-jellyfish-anime-girl.jpg"
+          title="Waifu World"
+          description="Collect unique waifus"
+        />
       </Carousel>
     </div>
   );
@@ -548,54 +525,20 @@ const DropdownExample = function () {
   );
 };
 
-const FormsExample = function () {
-  return (
-    <form className="flex flex-col gap-4">
-      <div>
-        <div className="mb-2 block">
-          <Label htmlFor="email1">Your email</Label>
-        </div>
-        <TextInput
-          id="email1"
-          type="email"
-          placeholder="name@flowbite.com"
-          required
-        />
-      </div>
-      <div>
-        <div className="mb-2 block">
-          <Label htmlFor="password1">Your password</Label>
-        </div>
-        <TextInput id="password1" type="password" required />
-      </div>
-      <div className="flex items-center gap-2">
-        <Checkbox id="remember" />
-        <Label htmlFor="remember">Remember me</Label>
-      </div>
-      <Button type="submit">Submit</Button>
-    </form>
-  );
-};
-
 const FooterExample = function () {
   return (
     <Footer container>
       <div className="w-full">
         <div className="grid w-full justify-between sm:flex sm:justify-between md:flex md:grid-cols-1">
-          <div>
-            <Footer.Brand
-              href="https://flowbite.com"
-              src="/next.svg"
-              alt="Flowbite Logo"
-              name="Flowbite"
-            />
+          <div className="font-medium text-xl mt-16 font-style: italic">
+            Sol-EcoWaifu . Love your Waifu
           </div>
           <div className="grid grid-cols-2 gap-8 sm:mt-4 sm:grid-cols-3 sm:gap-6">
             <div>
               <Footer.Title title="about" />
               <Footer.LinkGroup col>
-                <Footer.Link href="#">Flowbite</Footer.Link>
-                <Footer.Link href="#">Tailwind CSS</Footer.Link>
+                <Footer.Link href="#">Sol-EcoWaifu</Footer.Link>
+                <Footer.Link href="#">The Team</Footer.Link>
               </Footer.LinkGroup>
             </div>
             <div>
@@ -616,7 +559,7 @@ const FooterExample = function () {
         </div>
         <Footer.Divider />
         <div className="w-full sm:flex sm:items-center sm:justify-between">
-          <Footer.Copyright href="#" by="Flowbite™" year={2022} />
+          <Footer.Copyright href="#" by="Sol-EcoWaifu™" year={2024} />
           <div className="mt-4 flex space-x-6 sm:mt-0 sm:justify-center">
             <Footer.Icon href="#" icon={BsFacebook} />
             <Footer.Icon href="#" icon={BsInstagram} />
@@ -825,19 +768,6 @@ const SidebarExample = function () {
   );
 };
 
-const SpinnersExample = function () {
-  return (
-    <div className="flex flex-wrap gap-2">
-      <Spinner color="info" aria-label="info spinner example" />
-      <Spinner color="success" aria-label="success spinner example" />
-      <Spinner color="failure" aria-label="failure spinner example" />
-      <Spinner color="warning" aria-label="Yellow spinner example" />
-      <Spinner color="pink" aria-label="Pink spinner example" />
-      <Spinner color="purple" aria-label="Purple spinner example" />
-    </div>
-  );
-};
-
 const TablesExample = function () {
   return (
     <Table striped>
@@ -936,28 +866,6 @@ const TablesExample = function () {
   );
 };
 
-const TabsExample = function () {
-  return (
-    <Tabs aria-label="Tabs with icons" style="underline">
-      <Tabs.Item title="Profile" icon={HiUserCircle}>
-        Profile content
-      </Tabs.Item>
-      <Tabs.Item active title="Dashboard" icon={HiDatabase}>
-        Dashboard content
-      </Tabs.Item>
-      <Tabs.Item title="Settings" icon={HiAdjustments}>
-        Settings content
-      </Tabs.Item>
-      <Tabs.Item title="Contacts" icon={HiClipboardList}>
-        Contacts content
-      </Tabs.Item>
-      <Tabs.Item disabled title="Disabled">
-        Disabled content
-      </Tabs.Item>
-    </Tabs>
-  );
-};
-
 const TimelineExample = function () {
   return (
     <Timeline>
@@ -1000,54 +908,5 @@ const TimelineExample = function () {
         </Timeline.Content>
       </Timeline.Item>
     </Timeline>
-  );
-};
-
-const ToastExample = function () {
-  return (
-    <div className="flex flex-col gap-4">
-      <Toast>
-        <div className="inline-flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-green-100 text-green-500 dark:bg-green-800 dark:text-green-200">
-          <HiCheck className="h-5 w-5" />
-        </div>
-        <div className="ml-3 text-sm font-normal">Item moved successfully.</div>
-        <Toast.Toggle />
-      </Toast>
-      <Toast>
-        <div className="inline-flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-red-100 text-red-500 dark:bg-red-800 dark:text-red-200">
-          <HiX className="h-5 w-5" />
-        </div>
-        <div className="ml-3 text-sm font-normal">Item has been deleted.</div>
-        <Toast.Toggle />
-      </Toast>
-      <Toast>
-        <div className="inline-flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-orange-100 text-orange-500 dark:bg-orange-700 dark:text-orange-200">
-          <HiExclamation className="h-5 w-5" />
-        </div>
-        <div className="ml-3 text-sm font-normal">
-          Improve password difficulty.
-        </div>
-        <Toast.Toggle />
-      </Toast>
-    </div>
-  );
-};
-
-const TooltipsExample = function () {
-  return (
-    <div className="flex gap-2">
-      <Tooltip content="Tooltip content" placement="top">
-        <Button>Tooltip top</Button>
-      </Tooltip>
-      <Tooltip content="Tooltip content" placement="right">
-        <Button>Tooltip right</Button>
-      </Tooltip>
-      <Tooltip content="Tooltip content" placement="bottom">
-        <Button>Tooltip bottom</Button>
-      </Tooltip>
-      <Tooltip content="Tooltip content" placement="left">
-        <Button>Tooltip left</Button>
-      </Tooltip>
-    </div>
   );
 };

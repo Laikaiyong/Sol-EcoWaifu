@@ -1,0 +1,23 @@
+{
+  "name": "nft_program",
+  "version": "0.0.0",
+  "private": true,
+  "license": "Codigo",
+  "author": {
+    "name": "Codigo",
+    "email": "support@codigo.ai",
+    "url": "https://codigo.ai"
+  },
+  "repository": {
+    "url": "https://github.com/Codigo-ai"
+  },
+
+  "dependencies": {
+    "@solana/web3.js": "^1.78.3",
+    "borsh": "^1.0.0",
+    "typescript": "^5.1.6"
+  },
+  "engines": {
+    "node": ">=14.0.0"
+  }
+}

@@ -7,12 +7,6 @@ import React, { useState, useEffect } from "react";
 import { ProductCardList } from "../../component/Products/ProductCardList";
 
 export const HomePageContent = function () {
-  const image = "/logo.png";
-  const [src, setSrc] = useState(""); // initial src will be empty
-
-  useEffect(() => {
-    generateWaifuPic(setSrc);
-  }, []);
 
   return (
     <div className="p-6">
@@ -78,9 +72,6 @@ export const HomePageContent = function () {
         </h2>
         <ProductCardList />
       </section>
-      <div>
-        <img src={src} />
-      </div>
     </div>
   );
 };

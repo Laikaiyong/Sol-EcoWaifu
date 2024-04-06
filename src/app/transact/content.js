@@ -1,5 +1,6 @@
 "use client";
-
+import { waifu } from "../../provider/waifuprovider.js";
+import { transactions } from "../../provider/transactionprovider";
 import {
   Accordion,
   Alert,
@@ -85,177 +86,100 @@ export const HomePageContent = function () {
 
 
 const TablesExample = function () {
+  const tableValues = transactions;
+
+  const addressFormatter = (value, transactionHash = true) => {
+    if (!transactionHash) {
+      return value.slice(0, 5) + "..." + value.slice(-6, -1)
+    }
+    return value.slice(0, 10) + "...";
+  }
+
+
   return (
     <div class="overflow-x-auto relative shadow-md sm:rounded-lg">
-  <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
-    <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
-      <tr>
-        <th scope="col" class="py-3 px-6">Signature</th>
-        <th scope="col" class="py-3 px-6">Time</th>
-        <th scope="col" class="py-3 px-6">Type</th>
-        <th scope="col" class="py-3 px-6">From</th>
-        <th scope="col" class="py-3 px-6">To</th>
-        <th scope="col" class="py-3 px-6">Quantity</th>
-        <th scope="col" class="py-3 px-6">Token</th>
-      </tr>
-    </thead>
-    <tbody>
-    <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 ">
-        <td class="py-4 px-6">
-          <a href="#" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">5ECXkJGLc7tXEUV1bHGYus4...</a>
-        </td>
-        <td class="py-4 px-6">1 minute ago</td>
-        <td class="py-4 px-6">Sol-Transfer</td>
-        <td class="py-4 px-6">
-          <a href="#" class="text-blue-600 dark:text-blue-500 hover:underline">7BjPAh...zrVQsx</a>
-        </td>
-        <td class="py-4 px-6">
-          <a href="#" class="text-blue-600 dark:text-blue-500 hover:underline">4njwAB...85djVJ</a>
-        </td>
-        <td class="py-4 px-6">5</td>
-        <td class="py-4 px-6">
-          <a href="#" class="text-blue-600 dark:text-blue-500 hover:underline">Waifu #15</a>
-        </td>
-      </tr>
-      
-      <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
-        <td class="py-4 px-6">
-          <a href="#" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">3NGFZRpZ2sB9ECqB1RtZpyp...</a>
-        </td>
-        <td class="py-4 px-6">2 minutes ago</td>
-        <td class="py-4 px-6">Sol-Transfer</td>
-        <td class="py-4 px-6">
-          <a href="#" class="text-blue-600 dark:text-blue-500 hover:underline">9UkRBy...ShbEMs</a>
-        </td>
-        <td class="py-4 px-6">
-          <a href="#" class="text-blue-600 dark:text-blue-500 hover:underline">7BjPAh...zrVQsx</a>
-        </td>
-        <td class="py-4 px-6">3</td>
-        <td class="py-4 px-6">
-          <a href="#" class="text-blue-600 dark:text-blue-500 hover:underline">Waifu #12</a>
-        </td>
-      </tr>
-      
-      <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
-        <td class="py-4 px-6">
-          <a href="#" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">4n5QnLqJUPMmMf5BqjXyMUT...</a>
-        </td>
-        <td class="py-4 px-6">3 minutes ago</td>
-        <td class="py-4 px-6">Sol-Transfer</td>
-        <td class="py-4 px-6">
-          <a href="#" class="text-blue-600 dark:text-blue-500 hover:underline">7BjPAh...zrVQsx</a>
-        </td>
-        <td class="py-4 px-6">
-          <a href="#" class="text-blue-600 dark:text-blue-500 hover:underline">Aoc912...MR7DXE</a>
-        </td>
-        <td class="py-4 px-6">13</td>
-        <td class="py-4 px-6">
-          <a href="#" class="text-blue-600 dark:text-blue-500 hover:underline">Waifu #275</a>
-        </td>
-      </tr>
-    
-      <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
-        <td class="py-4 px-6">
-          <a href="#" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">mjkd8n1E77jzHavB3MqeaW...</a>
-        </td>
-        <td class="py-4 px-6">4 minutes ago</td>
-        <td class="py-4 px-6">Sol-Transfer</td>
-        <td class="py-4 px-6">
-          <a href="#" class="text-blue-600 dark:text-blue-500 hover:underline">9qEwpK...i93n3p</a>
-        </td>
-        <td class="py-4 px-6">
-          <a href="#" class="text-blue-600 dark:text-blue-500 hover:underline">7BjPAh...zrVQsx</a>
-        </td>
-        <td class="py-4 px-6">3</td>
-        <td class="py-4 px-6">
-          <a href="#" class="text-blue-600 dark:text-blue-500 hover:underline">Waifu #25</a>
-        </td>
-      </tr>
-      
-      <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
-        <td class="py-4 px-6">
-          <a href="#" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">5jvZot7PwKGMFMHdycfG5Snj...</a>
-        </td>
-        <td class="py-4 px-6">5 minutes ago</td>
-        <td class="py-4 px-6">Sol-Transfer</td>
-        <td class="py-4 px-6">
-          <a href="#" class="text-blue-600 dark:text-blue-500 hover:underline">7BjPAh...zrVQsx</a>
-        </td>
-        <td class="py-4 px-6">
-          <a href="#" class="text-blue-600 dark:text-blue-500 hover:underline">HhDoNH...6cBddi</a>
-        </td>
-        <td class="py-4 px-6">5</td>
-        <td class="py-4 px-6">
-          <a href="#" class="text-blue-600 dark:text-blue-500 hover:underline">Waifu #69</a>
-        </td>
-      </tr>
-      
-      <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
-        <td class="py-4 px-6">
-          <a href="#" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">2uaRDEpNLLW4tvC8YZeTD9d...</a>
-        </td>
-        <td class="py-4 px-6">6 minutes ago</td>
-        <td class="py-4 px-6">Sol-Transfer</td>
-        <td class="py-4 px-6">
-          <a href="#" class="text-blue-600 dark:text-blue-500 hover:underline">7VNnMf...HmekwT</a>
-        </td>
-        <td class="py-4 px-6">
-          <a href="#" class="text-blue-600 dark:text-blue-500 hover:underline">7BjPAh...zrVQsx</a>
-        </td>
-        <td class="py-4 px-6">8</td>
-        <td class="py-4 px-6">
-          <a href="#" class="text-blue-600 dark:text-blue-500 hover:underline">Waifu #88</a>
-        </td>
-      </tr>
-
-    </tbody>
-  </table>
-</div>
-
+      <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
+        <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+          <tr>
+            <th scope="col" class="py-3 px-6">Signature</th>
+            <th scope="col" class="py-3 px-6">Time</th>
+            <th scope="col" class="py-3 px-6">Type</th>
+            <th scope="col" class="py-3 px-6">From</th>
+            <th scope="col" class="py-3 px-6">To</th>
+            <th scope="col" class="py-3 px-6">Quantity</th>
+            <th scope="col" class="py-3 px-6">Token</th>
+          </tr>
+        </thead>
+        <tbody>
+          {tableValues.map((item) => (
+            <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700" key={item.address}>
+              <td class="py-4 px-6 flex items-center">
+                <img src={item.imgaddress} alt="Logo" style={{width: '40px', height: '40px', marginRight: '10px'}} />
+                <a href={"https://solscan.io/tx/" + item.address} target="_blank" rel="noopener noreferrer" className="font-medium text-blue-600 dark:text-blue-500 hover:underline">
+                  {addressFormatter(item.address)}
+                </a>
+              </td>
+              <td class="py-4 px-6">{item.timestamp}</td>
+              <td class="py-4 px-6">{item.transferType}</td>
+              <td class="py-4 px-6">
+                <a href={"https://solscan.io/account/" + item.from} target="_blank" rel="noopener noreferrer" className="text-blue-600 dark:text-blue-500 hover:underline">
+                  {addressFormatter(item.from, false)}
+                </a>
+              </td>
+              <td class="py-4 px-6">
+                <a href={"https://solscan.io/account/" + item.to} target="_blank" rel="noopener noreferrer" className="text-blue-600 dark:text-blue-500 hover:underline">
+                  {addressFormatter(item.to, false)}
+                </a>
+              </td>
+              <td class="py-4 px-6">{item.quantity}</td>
+              <td class="py-4 px-6">
+                {item.token}
+              </td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
   );
 };
 
 const TimelineExample = function () {
+  const tableValues = transactions;
+  const waifuInfo = waifu;
+
+  const addressFormatter = (value, transactionHash = true) => {
+    if (!transactionHash) {
+      return value.slice(0, 5) + "..." + value.slice(-6, -1)
+    }
+    return value.slice(0, 10) + "...";
+  }
+
+
   return (
     <Timeline>
-      <Timeline.Item>
-        <Timeline.Point />
-        <Timeline.Content>
-          <Timeline.Time>February 2022</Timeline.Time>
-          <Timeline.Title>Application UI code in Tailwind CSS</Timeline.Title>
-          <Timeline.Body>
-            Get access to over 20+ pages including a dashboard layout, charts,
-            kanban board, calendar, and pre-order E-commerce & Marketing pages.
-          </Timeline.Body>
-          <Button color="gray">
-            Learn More
-            <HiArrowNarrowRight className="ml-2 h-3 w-3" />
-          </Button>
-        </Timeline.Content>
-      </Timeline.Item>
-      <Timeline.Item>
-        <Timeline.Point />
-        <Timeline.Content>
-          <Timeline.Time>March 2022</Timeline.Time>
-          <Timeline.Title>Marketing UI design in Figma</Timeline.Title>
-          <Timeline.Body>
-            All of the pages and components are first designed in Figma and we
-            keep a parity between the two versions even as we update the
-            project.
-          </Timeline.Body>
-        </Timeline.Content>
-      </Timeline.Item>
-      <Timeline.Item>
-        <Timeline.Point />
-        <Timeline.Content>
-          <Timeline.Time>April 2022</Timeline.Time>
-          <Timeline.Title>E-Commerce UI code in Tailwind CSS</Timeline.Title>
-          <Timeline.Body>
-            Get started with dozens of web components and interactive elements
-            built on top of Tailwind CSS.
-          </Timeline.Body>
-        </Timeline.Content>
-      </Timeline.Item>
+      {tableValues.slice(0, 3).map((item, index) => (
+        <Timeline.Item key={index}>
+          <Timeline.Point />
+          <Timeline.Content>
+            <Timeline.Time>{item.timestamp}</Timeline.Time>
+            <Timeline.Title>{addressFormatter(item.address)}</Timeline.Title>
+            <Timeline.Body>
+              <div className="flex flex-row gap-4">
+                <img src={item.imgaddress} alt="Your Image" className="shadow-md rounded-lg object-cover overflow-hidden w-[170px] h-[200px] relative" />
+                <div className="flex-grow">
+                  <div className="flex flex-col justify-around">
+                    
+                    <h3 className="text-lg font-semibold">From: {addressFormatter(item.from)}</h3>  
+                    <h3 className="text-lg font-semibold">To: {addressFormatter(item.to)}</h3>
+                    <p className="text-sm text-gray-600 dark:text-gray-200">Transfer Type: {item.transferType}</p>
+                    <p className="text-sm text-gray-600 dark:text-gray-200">Quantity: {item.quantity}</p>
+                  </div>
+                </div>        
+              </div>
+            </Timeline.Body>
+          </Timeline.Content>
+        </Timeline.Item>
+      ))}
     </Timeline>
   );
 };

@@ -1,19 +1,99 @@
 "use client";
 
 import { products } from "../../../provider/productprovider";
-import { Badge, Button, Modal } from "flowbite-react";
-import { useState } from "react";
+import { interactForNFT } from "../../../services/solanaservice";
+import {
+  Accordion,
+  Alert,
+  Avatar,
+  Badge,
+  Button,
+  Card,
+  Carousel,
+  Checkbox,
+  Dropdown,
+  Footer,
+  Label,
+  ListGroup,
+  Modal,
+  Navbar,
+  Pagination,
+  Progress,
+  Rating,
+  Sidebar,
+  Table,
+  TextInput,
+  Timeline,
+} from "flowbite-react";
+import { useState, useEffect } from "react";
+import { generateWaifuPic } from "../../../services/huggingfaceservice";
+import { useWallet, useConnection } from "@solana/wallet-adapter-react";
+import {
+  Connection,
+  PublicKey,
+  Transaction,
+  SystemProgram,
+  LAMPORTS_PER_SOL,
+  sendAndConfirmTransaction,
+  Keypair,
+  clusterApiUrl,
+} from "@solana/web3.js";
+import { sol } from "@metaplex-foundation/js";
 
 export default function ProductDetails({ params }) {
+  const { publicKey, sendTransaction, connected } = useWallet();
+  const { connection } = useConnection();
+  const [quantity, setQuantity] = useState(1);
+  const [price, setPrice] = useState(0.0);
   const product = products.find(
     (product) => product.product_id === params.product_id
   );
-  const [quantity, setQuantity] = useState(1);
+
+  const image = "/logo.png";
+  const [src, setSrc] = useState(""); // initial src will be empty
+
+  const RECIPIENT_PUBLIC_KEY = new PublicKey(
+    "6DvfoE1pA8C4jKhgAA28WbDpNGQiSQewua16TvTiradz"
+  );
+  const SOL_AMOUNT = 0.01;
+
+  const sendSol = async (solAmount) => {
+    if (!connected || !publicKey) {
+      alert("Wallet not connected");
+      return;
+    }
+
+    console.log(solAmount);
+
+    const transaction = new Transaction().add(
+      SystemProgram.transfer({
+        fromPubkey: publicKey,
+        toPubkey: RECIPIENT_PUBLIC_KEY,
+        lamports: solAmount * LAMPORTS_PER_SOL,
+      })
+    );
+
+    try {
+      const signature = await sendTransaction(transaction, connection, {
+        timeout: 30000,
+      });
+      await connection.confirmTransaction(signature, "confirmed");
+      console.log("Transaction successful with signature:", signature);
+      // alert('Transaction successful!');
+    } catch (error) {
+      console.error("Error sending SOL:", error);
+      // alert("Transaction successful:", error.message);
+    }
+  };
+
+  useEffect(() => {
+    setPrice(parseFloat(product.product_price));
+  }, []);
 
   return (
     <div className="p-6">
       <section className="mb-6">
-        <h1 className="py-4 text-4xl font-bold text-gray-900 dark:text-white">
+        <h1 className="py-4 text-4xl font-bold text-gray-900 dark:text-white font">
           {product.product_title}
         </h1>
         <div className="flex flex-row gap-4">
@@ -34,10 +114,10 @@ export default function ProductDetails({ params }) {
               alt={product.product_title}
             />
           </div>
-          <div className="col-span-3 p-8 bg-white rounded-xl shadow-lg">
+          <div className="col-span-3 p-8 bg-white rounded-xl shadow-lg text-black">
             <div className="min-w-min">{product.product_description}</div>
-            <h2 className="text-2xl font-bold mt-4">
-              ${product.product_price}
+            <h2 className="text-2xl font-bold mt-4 text-black">
+              {product.product_price} SOL
             </h2>
             <div className="mt-4">
               <label htmlFor="quantity" className="mr-2">
@@ -52,35 +132,134 @@ export default function ProductDetails({ params }) {
                 className="border rounded-md p-2"
               />
             </div>
+            <RatingExample />
             <div className="my-4">
-              <AddToCart />
+              <Button
+                onClick={() => {
+                  sendSol(price);
+                  generateWaifuPic(setSrc);
+                }}>
+                Purchase
+              </Button>
+              {/* <AddToCart sendSol={() => sendSol(0.00012)} productPrice={0.00012} /> */}
             </div>
           </div>
+        </div>
+        <div>
+          {src && (
+            <>
+            <h1 className="py-4 text-4xl font-bold text-gray-900 dark:text-white font">
+          Mint your waifu
+        </h1>
+                    <Card
+          className="max-w-sm align-center"
+          imgAlt="Waifu"
+          imgSrc={src}>
+          <a href="#">
+            <h5 className="text-xl font-semibold tracking-tight text-gray-900 dark:text-white">
+              Waifu #827
+            </h5>
+          </a>
+          <div className="flex items-center justify-between">
+            <span className="text-3xl font-bold text-gray-900 dark:text-white">
+              Claim Waifu
+            </span>
+            <div
+              className="rounded-lg bg-cyan-700 px-5 py-2.5 text-center text-sm font-medium text-white hover:bg-cyan-800 focus:outline-none focus:ring-4 focus:ring-cyan-300 dark:bg-cyan-600 dark:hover:bg-cyan-700 dark:focus:ring-cyan-800">
+              <NFTMinting />
+            </div>
+          </div>
+        </Card>
+            </>
+          )}
         </div>
       </section>
     </div>
   );
 }
 
-const AddToCart = function () {
+const AddToCart = function (sendSol, productPrice) {
   const [isOpen, setOpen] = useState(false);
 
   return (
     <>
-      <Button onClick={() => setOpen(true)}>Add To Cart</Button>
+      <Button onClick={() => setOpen(true)}>Purchase</Button>
       <Modal show={isOpen} onClose={() => setOpen(false)}>
-        <Modal.Header>
-          Are you sure you want to add this item to your cart?????
-        </Modal.Header>
+        <Modal.Header>Purchase Confirmation</Modal.Header>
         <Modal.Body>
           <div className="space-y-6">
             <p className="text-base leading-relaxed text-gray-500 dark:text-gray-400">
-              Some stuff
+              {"Purchase item for " + 0.00012 + " SOL"}
             </p>
           </div>
         </Modal.Body>
         <Modal.Footer className="flex justify-center align-middle">
-          <Button onClick={() => setOpen(false)}>Yast</Button>
+          <Button
+            onClick={() => {
+              productPrice = 0.00012;
+              sendSol;
+              setOpen(false);
+            }}>
+            Yes
+          </Button>
+          <Button color="gray" onClick={() => setOpen(false)}>
+            Cancel
+          </Button>
+        </Modal.Footer>
+      </Modal>
+    </>
+  );
+};
+
+const RatingExample = function () {
+  return (
+    <div className="flex flex-col justify-center gap-4">
+      <Rating>
+        <Rating.Star />
+        <Rating.Star />
+        <Rating.Star />
+        <Rating.Star />
+        <Rating.Star filled={false} />
+        <p className="ml-2 text-sm font-medium text-gray-500 dark:text-gray-400">
+          4.1 out of 5
+        </p>
+      </Rating>
+      <p className="text-sm font-medium text-gray-500 dark:text-gray-400">
+        190 ratings
+      </p>
+      <Rating.Advanced percentFilled={17}>5 star</Rating.Advanced>
+      <Rating.Advanced percentFilled={70}>4 star</Rating.Advanced>
+      <Rating.Advanced percentFilled={8}>3 star</Rating.Advanced>
+      <Rating.Advanced percentFilled={4}>2 star</Rating.Advanced>
+      <Rating.Advanced percentFilled={1}>1 star</Rating.Advanced>
+    </div>
+  );
+};
+
+const NFTMinting = function () {
+  const [isOpen, setOpen] = useState(false);
+
+  return (
+    <>
+      <Button onClick={() => interactForNFT()}>Mint your NFT now</Button>
+      <Modal show={isOpen} onClose={() => setOpen(false)}>
+        <Modal.Header>Purchase Confirmation</Modal.Header>
+        <Modal.Body>
+          <div className="space-y-6">
+            <p className="text-base leading-relaxed text-gray-500 dark:text-gray-400">
+              {"Mint item for " + 0.00028 + " SOL"}
+            </p>
+          </div>
+        </Modal.Body>
+        <Modal.Footer className="flex justify-center align-middle">
+          <Button
+            onClick={() => {
+              productPrice = 0.00012;
+              sendSol;
+              setOpen(false);
+            }}>
+            Yes
+          </Button>
           <Button color="gray" onClick={() => setOpen(false)}>
             Cancel
           </Button>
