@@ -94,30 +94,30 @@ export const HomePageContent = function () {
             Discover more
           </h2>
         </header>
-        <div class="flex items-center justify-center py-4 md:py-8 flex-wrap">
+        <div class="flex items-center justify-start mb-2 py-1 md:py-2 flex-wrap">
           <button
             type="button"
-            class="text-gray-700 hover:text-white border border-gray-600 bg-white hover:bg-gray-700 focus:ring-4 focus:outline-none focus:ring-gray-300 rounded-full text-base font-medium px-5 py-2.5 text-center me-3 mb-3 dark:border-gray-500 dark:text-gray-500 dark:hover:text-white dark:hover:bg-gray-500 dark:bg-gray-900 dark:focus:ring-gray-800">
+            class="text-gray-700 hover:text-white border border-gray-600 bg-white hover:bg-gray-700 focus:ring-4 focus:outline-none focus:ring-gray-300 rounded-full text-sm font-medium px-5 py-2 text-center me-3 mb-2 dark:border-gray-500 dark:text-gray-500 dark:hover:text-white dark:hover:bg-gray-500 dark:bg-gray-900 dark:focus:ring-gray-800">
             All categories
           </button>
           <button
             type="button"
-            class="text-gray-700 hover:text-white border border-gray-600 bg-white hover:bg-gray-700 focus:ring-4 focus:outline-none focus:ring-gray-300 rounded-full text-base font-medium px-5 py-2.5 text-center me-3 mb-3 dark:border-gray-500 dark:text-gray-500 dark:hover:text-white dark:hover:bg-gray-500 dark:bg-gray-900 dark:focus:ring-gray-800">
+            class="text-gray-700 hover:text-white border border-gray-600 bg-white hover:bg-gray-700 focus:ring-4 focus:outline-none focus:ring-gray-300 rounded-full text-sm font-medium px-5 py-2 text-center me-3 mb-2 dark:border-gray-500 dark:text-gray-500 dark:hover:text-white dark:hover:bg-gray-500 dark:bg-gray-900 dark:focus:ring-gray-800">
             Shoes
           </button>
           <button
             type="button"
-            class="text-gray-900 border border-white hover:border-gray-200 dark:border-gray-900 dark:bg-gray-900 dark:hover:border-gray-700 bg-white focus:ring-4 focus:outline-none focus:ring-gray-300 rounded-full text-base font-medium px-5 py-2.5 text-center me-3 mb-3 dark:text-white dark:focus:ring-gray-800">
+            class="text-gray-700 hover:text-white border border-gray-600 bg-white hover:bg-gray-700 focus:ring-4 focus:outline-none focus:ring-gray-300 rounded-full text-sm font-medium px-5 py-2 text-center me-3 mb-2 dark:border-gray-500 dark:text-gray-500 dark:hover:text-white dark:hover:bg-gray-500 dark:bg-gray-900 dark:focus:ring-gray-800">
             Bags
           </button>
           <button
             type="button"
-            class="text-gray-900 border border-white hover:border-gray-200 dark:border-gray-900 dark:bg-gray-900 dark:hover:border-gray-700 bg-white focus:ring-4 focus:outline-none focus:ring-gray-300 rounded-full text-base font-medium px-5 py-2.5 text-center me-3 mb-3 dark:text-white dark:focus:ring-gray-800">
+            class="text-gray-700 hover:text-white border border-gray-600 bg-white hover:bg-gray-700 focus:ring-4 focus:outline-none focus:ring-gray-300 rounded-full text-sm font-medium px-5 py-2 text-center me-3 mb-2 dark:border-gray-500 dark:text-gray-500 dark:hover:text-white dark:hover:bg-gray-500 dark:bg-gray-900 dark:focus:ring-gray-800">
             Electronics
           </button>
           <button
             type="button"
-            class="text-gray-900 border border-white hover:border-gray-200 dark:border-gray-900 dark:bg-gray-900 dark:hover:border-gray-700 bg-white focus:ring-4 focus:outline-none focus:ring-gray-300 rounded-full text-base font-medium px-5 py-2.5 text-center me-3 mb-3 dark:text-white dark:focus:ring-gray-800">
+            class="text-gray-700 hover:text-white border border-gray-600 bg-white hover:bg-gray-700 focus:ring-4 focus:outline-none focus:ring-gray-300 rounded-full text-sm font-medium px-5 py-2 text-center me-3 mb-2 dark:border-gray-500 dark:text-gray-500 dark:hover:text-white dark:hover:bg-gray-500 dark:bg-gray-900 dark:focus:ring-gray-800">
             Gaming
           </button>
         </div>

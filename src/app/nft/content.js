@@ -131,7 +131,7 @@ const CardList = () => {
   return (
     <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
       {card.map((waifu) => (
-        <a href="/waifu-chat" className="max-w-xs bg-white rounded-lg shadow-md overflow-hidden dark:bg-gray-800 dark:border-gray-700 transition duration-300 ease-in-out hover:shadow-lg">
+        <a href="/waifu-chat" className="max-w-xs bg-white rounded-lg shadow-md overflow-hidden dark:bg-gray-800 dark:border-gray-700 transition duration-300 ease-in-out hover:shadow-lg" key={waifu.imgSrc}>
           <div className="w-full overflow-hidden" style={{ height: '260px' }}>
             <img className="w-full h-full object-cover transform transition duration-300 ease-in-out hover:scale-110" src={waifu.imgSrc} alt={waifu.title} />
           </div>
