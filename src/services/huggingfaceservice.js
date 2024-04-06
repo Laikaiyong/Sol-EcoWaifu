@@ -5,16 +5,16 @@ export const generateWaifuPic= async (setWaifuPic) => {
         
         const hf = new HfInference(process.env.NEXT_PUBLIC_HUGGING_FACE_API);
 
-          const text = await hf.textGeneration({
-            model: 'gpt2',
-            inputs: 'The answer to one common color is '
-          })
+          // const text = await hf.textGeneration({
+          //   model: 'gpt2',
+          //   inputs: 'The answer to one common color is '
+          // })
 
-          const color = text.generated_text.split('The answer to one common color is ')[1].split(" ")[0]
+          // const color = text.generated_text.split('The answer to one common color is ')[1].split(" ")[0]
 
-          console.log(color );
+          // console.log(color );
         const item = await hf.textToImage({
-          inputs: 'masterpiece, best quality, 1girl, ' + color + " hair" ,
+          inputs: 'masterpiece, best quality, 1girl, blue hair',
           // model: 'stabilityai/stable-diffusion-2',
           model: 'hakurei/waifu-diffusion',
           // parameters: {

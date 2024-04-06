@@ -1,6 +1,6 @@
 "use client";
 import { waifu } from "../../provider/waifuprovider.js";
-import { transactions } from "../../provider/transactionprovider";
+import { transactions } from "../../provider/transactionprovider.js";
 import {
   Accordion,
   Alert,

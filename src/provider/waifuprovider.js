@@ -31,4 +31,24 @@ export const waifu = [
         name: "WaifuX Waifu #9",
         description: "Behold Amber, the pixelated temptress, emanating warmth, mystery, and a touch of digital nostalgia. Secure her embrace today!"
       },
+      {
+        imgSrc: 'https://images-ng.pixai.art/images/stillThumb/67ffd492-a037-417d-bd98-cd45206f78f3',
+        title: 'WaifuX Waifu #11',
+        edition: 'x1000',
+        price: '0.0008 SOL',
+          lastSale: '<0.01 SOL',
+        collection: "WaifuX",
+        name: "WaifuX Waifu #11",
+        description: "Gaia, the priest, manipulate nature and remedy."
+      },
+      {
+        imgSrc: 'https://images-ng.pixai.art/images/thumb/e90dacb7-f7b8-438b-90a8-2ab6f27d4d8c',
+        title: 'WaifuX Waifu #28',
+        edition: 'x1000',
+        price: '0.0008 SOL',
+          lastSale: '<0.01 SOL',
+        collection: "WaifuX",
+        name: "WaifuX Waifu #28",
+        description: "Ignis, the flame"
+      },
 ]
