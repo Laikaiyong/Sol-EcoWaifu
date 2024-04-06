@@ -14,7 +14,7 @@ export const generateWaifuPic= async (setWaifuPic) => {
 
           // console.log(color );
         const item = await hf.textToImage({
-          inputs: 'masterpiece, best quality, 1girl, blue hair',
+          inputs: 'masterpiece, best quality, 1girl, black hair, outdoor',
           // model: 'stabilityai/stable-diffusion-2',
           model: 'hakurei/waifu-diffusion',
           // parameters: {
