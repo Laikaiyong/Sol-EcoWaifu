@@ -16,21 +16,19 @@ export default function ProductDetails({ params }) {
   const [quantity, setQuantity] = useState(1);
   const [price, setPrice] = useState(0.0);
   const [nftHash, setNftHash] = useState("");
-  const product = products.find(
-    (product) => product.product_id === params.product_id
-  );
+  const product = products.find((product) => product.product_id === params.product_id);
 
   const image = "/logo.png";
   const [src, setSrc] = useState(""); // initial src will be empty
   const [files, setFiles] = useState([]);
   const [imgUrl, setImgUrl] = useState("");
+  const [txnConfirmed, setTxnConfirmed] = useState(false);
 
   const { startUpload, isUploading } = useUploadThing("imageUploader", {
     onClientUploadComplete: (res) => {
       alert("uploaded successfully!");
 
       setImgUrl(res[0].url);
-      generateNFTReq(imgUrl);
     },
     onUploadError: () => {
       alert("error occurred while uploading");
@@ -82,6 +80,7 @@ export default function ProductDetails({ params }) {
         timeout: 30000,
       });
       await connection.confirmTransaction(signature, "confirmed");
+      setTxnConfirmed(true);
       console.log("Transaction successful with signature:", signature);
       // alert('Transaction successful!');
     } catch (error) {
@@ -113,6 +112,11 @@ export default function ProductDetails({ params }) {
     }
   }, [src]); // Trigger the effect whenever src changes
 
+  useEffect(() => {
+    if (imgUrl) {
+      generateNFTReq(imgUrl);
+    }
+  }, [imgUrl]);
   return (
     <div className="p-6">
       <section className="mb-6">
@@ -158,7 +162,7 @@ export default function ProductDetails({ params }) {
               <Button
                 onClick={() => {
                   sendSol(price);
-                  setNftHash(Math.floor(Math.random() * 1000))
+                  setNftHash(Math.floor(Math.random() * 1000));
                   generateWaifuPic(setSrc);
                 }}>
                 Purchase
@@ -170,28 +174,24 @@ export default function ProductDetails({ params }) {
         <div>
           {src && (
             <>
-            <h1 className="py-4 text-4xl font-bold text-gray-900 dark:text-white font">
-          Mint your waifu
-        </h1>
-                    <Card
-          className="max-w-sm align-center"
-          imgAlt="Waifu"
-          imgSrc={src}>
-          <a href="#">
-            <h5 className="text-xl font-semibold tracking-tight text-gray-900 dark:text-white">
-              Waifu #{nftHash}
-            </h5>
-          </a>
-          <div className="flex items-center justify-between">
-            <span className="text-3xl font-bold text-gray-900 dark:text-white">
-              Claim Waifu
-            </span>
-            <div
-              className="rounded-lg bg-cyan-700 px-5 py-2.5 text-center text-sm font-medium text-white hover:bg-cyan-800 focus:outline-none focus:ring-4 focus:ring-cyan-300 dark:bg-cyan-600 dark:hover:bg-cyan-700 dark:focus:ring-cyan-800">
-              <NFTMinting />
-            </div>
-          </div>
-        </Card>
+              <h1 className="py-4 text-4xl font-bold text-gray-900 dark:text-white font">
+                Mint your waifu
+              </h1>
+              <Card className="max-w-sm align-center" imgAlt="Waifu" imgSrc={src}>
+                <a href="#">
+                  <h5 className="text-xl font-semibold tracking-tight text-gray-900 dark:text-white">
+                    Waifu #{nftHash}
+                  </h5>
+                </a>
+                <div className="flex items-center justify-between">
+                  <span className="text-3xl font-bold text-gray-900 dark:text-white">
+                    Claim Waifu
+                  </span>
+                  <div className="rounded-lg bg-cyan-700 px-5 py-2.5 text-center text-sm font-medium text-white hover:bg-cyan-800 focus:outline-none focus:ring-4 focus:ring-cyan-300 dark:bg-cyan-600 dark:hover:bg-cyan-700 dark:focus:ring-cyan-800">
+                    <NFTMinting />
+                  </div>
+                </div>
+              </Card>
             </>
           )}
         </div>

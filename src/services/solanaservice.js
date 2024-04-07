@@ -142,6 +142,7 @@ export const interactForNFT = async (imgBuffer, fileName) => {
     CONFIG.description,
     CONFIG.attributes
   );
+
   //Step 3 - Mint NFT
   mintNft(
     metadataUri,

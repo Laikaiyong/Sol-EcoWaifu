@@ -8,8 +8,6 @@ export async function POST(req) {
     if (!response.ok) throw new Error(`Failed to fetch ${url}: ${response.statusText}`);
     const buffer = await response.arrayBuffer(); // Get the response body as a Buffer
 
-    console.log("Buffer", buffer);
-
     const imgUri = await interactForNFT(buffer, "waifu");
 
     return new Response(
