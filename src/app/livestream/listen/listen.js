@@ -40,14 +40,14 @@ export const ListenBlock = () => {
   const { peerIds } = usePeerIds();
 
     return (
-        <main
+      <main
         className={`flex min-h-screen flex-col items-center p-4 ${inter.className}`}>
-          <p>Room ID: {room}</p>
+        <p className="dark:text-white text-black">Room ID: {room}</p>
         <div className="z-10 max-w-5xl w-full items-center justify-between font-mono text-sm lg:flex">
           <p className="fixed left-0 top-0 flex w-full justify-center border-b border-gray-300 bg-gradient-to-b from-zinc-200 pb-6 pt-8 backdrop-blur-2xl dark:border-neutral-800 dark:bg-zinc-800/30 dark:from-inherit lg:static lg:w-auto  lg:rounded-xl lg:border lg:bg-gray-200 lg:p-4 lg:dark:bg-zinc-800/30">
             <code className="font-mono font-bold">{state}</code>
           </p>
-          <div className="fixed bottom-0 left-0 flex h-48 w-full items-end justify-center bg-gradient-to-t from-white via-white dark:from-black dark:via-black lg:static lg:h-auto lg:w-auto lg:bg-none">
+          <div className="fixed bottom-0 left-0 flex flex-col h-48 w-full items-end justify-center bg-gradient-to-t from-white via-white dark:from-black dark:via-black lg:static lg:h-auto lg:w-auto lg:bg-none">
             {state === "idle" && (
               <>
                 <input
@@ -72,11 +72,10 @@ export const ListenBlock = () => {
                   type="button"
                   className="bg-blue-500 p-2 mx-2 rounded-lg"
                   onClick={async () => {
-                    await fetch(
-                      `/api?roomId=${room}&listen=true`
-                    )
+                    await fetch(`/api?roomId=${room}&listen=true`);
 
-                    const token = getCookie('huddle-listen-jwt')?.toString() ?? "";
+                    const token =
+                      getCookie("huddle-listen-jwt")?.toString() ?? "";
                     await joinRoom({
                       roomId: room,
                       token,
@@ -88,7 +87,7 @@ export const ListenBlock = () => {
             )}
 
             {state === "connected" && (
-              <>
+              <div className="flex flex-row py-3">
                 <button
                   className="bg-blue-500 p-2 mx-2 rounded-lg"
                   onClick={async () => {
@@ -112,8 +111,9 @@ export const ListenBlock = () => {
                   }}>
                   {shareStream ? "Disable Screen" : "Enable Screen"}
                 </button>
-              </>
+              </div>
             )}
+            {state === "connected" && <ChatBox role="listen"/>}
           </div>
         </div>
 
@@ -150,8 +150,7 @@ export const ListenBlock = () => {
               )}
             </div>
           </div>
-          {state === "connected" && <ChatBox />}
         </div>
       </main>
-    )
+    );
 }

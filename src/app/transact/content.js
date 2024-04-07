@@ -1,6 +1,6 @@
 "use client";
 import { waifu } from "../../provider/waifuprovider.js";
-import { transactions } from "../../provider/transactionprovider";
+import { transactions } from "../../provider/transactionprovider.js";
 import {
   Accordion,
   Alert,
@@ -97,42 +97,42 @@ const TablesExample = function () {
 
 
   return (
-    <div class="overflow-x-auto relative shadow-md sm:rounded-lg">
-      <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
-        <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+    <div className="overflow-x-auto relative shadow-md sm:rounded-lg">
+      <table className="w-full text-sm text-left text-gray-500 dark:text-gray-400">
+        <thead className="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
           <tr>
-            <th scope="col" class="py-3 px-6">Signature</th>
-            <th scope="col" class="py-3 px-6">Time</th>
-            <th scope="col" class="py-3 px-6">Type</th>
-            <th scope="col" class="py-3 px-6">From</th>
-            <th scope="col" class="py-3 px-6">To</th>
-            <th scope="col" class="py-3 px-6">Quantity</th>
-            <th scope="col" class="py-3 px-6">Token</th>
+            <th scope="col" className="py-3 px-6">Signature</th>
+            <th scope="col" className="py-3 px-6">Time</th>
+            <th scope="col" className="py-3 px-6">Type</th>
+            <th scope="col" className="py-3 px-6">From</th>
+            <th scope="col" className="py-3 px-6">To</th>
+            <th scope="col" className="py-3 px-6">Quantity</th>
+            <th scope="col" className="py-3 px-6">Token</th>
           </tr>
         </thead>
         <tbody>
           {tableValues.map((item) => (
-            <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700" key={item.address}>
-              <td class="py-4 px-6 flex items-center">
+            <tr className="bg-white border-b dark:bg-gray-800 dark:border-gray-700" key={item.address}>
+              <td className="py-4 px-6 flex items-center">
                 <img src={item.imgaddress} alt="Logo" style={{width: '40px', height: '40px', marginRight: '10px'}} />
                 <a href={"https://solscan.io/tx/" + item.address} target="_blank" rel="noopener noreferrer" className="font-medium text-blue-600 dark:text-blue-500 hover:underline">
                   {addressFormatter(item.address)}
                 </a>
               </td>
-              <td class="py-4 px-6">{item.timestamp}</td>
-              <td class="py-4 px-6">{item.transferType}</td>
-              <td class="py-4 px-6">
+              <td className="py-4 px-6">{item.timestamp}</td>
+              <td className="py-4 px-6">{item.transferType}</td>
+              <td className="py-4 px-6">
                 <a href={"https://solscan.io/account/" + item.from} target="_blank" rel="noopener noreferrer" className="text-blue-600 dark:text-blue-500 hover:underline">
                   {addressFormatter(item.from, false)}
                 </a>
               </td>
-              <td class="py-4 px-6">
+              <td className="py-4 px-6">
                 <a href={"https://solscan.io/account/" + item.to} target="_blank" rel="noopener noreferrer" className="text-blue-600 dark:text-blue-500 hover:underline">
                   {addressFormatter(item.to, false)}
                 </a>
               </td>
-              <td class="py-4 px-6">{item.quantity}</td>
-              <td class="py-4 px-6">
+              <td className="py-4 px-6">{item.quantity}</td>
+              <td className="py-4 px-6">
                 {item.token}
               </td>
             </tr>
