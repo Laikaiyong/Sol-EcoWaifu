@@ -31,10 +31,10 @@ export default function ProductDetails({ params }) {
       setImgUrl(res[0].url);
     },
     onUploadError: () => {
-      alert("error occurred while uploading");
+      console.log("upload error");
     },
     onUploadBegin: () => {
-      alert("upload has begun");
+      console.log("upload has begun");
     },
   });
 
