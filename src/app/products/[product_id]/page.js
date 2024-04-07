@@ -1,43 +1,13 @@
 "use client";
 
 import { products } from "../../../provider/productprovider";
-import { interactForNFT } from "../../../services/solanaservice";
-import {
-  Accordion,
-  Alert,
-  Avatar,
-  Badge,
-  Button,
-  Card,
-  Carousel,
-  Checkbox,
-  Dropdown,
-  Footer,
-  Label,
-  ListGroup,
-  Modal,
-  Navbar,
-  Pagination,
-  Progress,
-  Rating,
-  Sidebar,
-  Table,
-  TextInput,
-  Timeline,
-} from "flowbite-react";
+import { useUploadThing } from "../../../utils/uploadthing";
+
+import { Badge, Button, Card, Modal, Rating } from "flowbite-react";
 import { useState, useEffect } from "react";
 import { generateWaifuPic } from "../../../services/huggingfaceservice";
 import { useWallet, useConnection } from "@solana/wallet-adapter-react";
-import {
-  Connection,
-  PublicKey,
-  Transaction,
-  SystemProgram,
-  LAMPORTS_PER_SOL,
-  sendAndConfirmTransaction,
-  Keypair,
-  clusterApiUrl,
-} from "@solana/web3.js";
+import { PublicKey, Transaction, SystemProgram, LAMPORTS_PER_SOL } from "@solana/web3.js";
 import { sol } from "@metaplex-foundation/js";
 
 export default function ProductDetails({ params }) {
@@ -46,17 +16,48 @@ export default function ProductDetails({ params }) {
   const [quantity, setQuantity] = useState(1);
   const [price, setPrice] = useState(0.0);
   const [nftHash, setNftHash] = useState("");
-  const product = products.find(
-    (product) => product.product_id === params.product_id
-  );
+  const product = products.find((product) => product.product_id === params.product_id);
 
   const image = "/logo.png";
   const [src, setSrc] = useState(""); // initial src will be empty
+  const [files, setFiles] = useState([]);
+  const [imgUrl, setImgUrl] = useState("");
+  const [txnConfirmed, setTxnConfirmed] = useState(false);
 
-  const RECIPIENT_PUBLIC_KEY = new PublicKey(
-    "6DvfoE1pA8C4jKhgAA28WbDpNGQiSQewua16TvTiradz"
-  );
+  const { startUpload, isUploading } = useUploadThing("imageUploader", {
+    onClientUploadComplete: (res) => {
+      alert("uploaded successfully!");
+
+      setImgUrl(res[0].url);
+    },
+    onUploadError: () => {
+      alert("error occurred while uploading");
+    },
+    onUploadBegin: () => {
+      alert("upload has begun");
+    },
+  });
+
+  const RECIPIENT_PUBLIC_KEY = new PublicKey("6DvfoE1pA8C4jKhgAA28WbDpNGQiSQewua16TvTiradz");
   const SOL_AMOUNT = 0.01;
+
+  const generateNFTReq = async (imgUrl) => {
+    const res = await fetch("/api/nftApi", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ imgUrl: imgUrl }),
+    });
+    const data = await res.json();
+    console.log(data + "Img Url sent to NFT API");
+  };
+
+  function blobToFile(blob) {
+    const file = new File([blob], "waifu.jpeg", {
+      type: blob.type,
+      lastModified: new Date().getTime(),
+    });
+    return file;
+  }
 
   const sendSol = async (solAmount) => {
     if (!connected || !publicKey) {
@@ -79,6 +80,7 @@ export default function ProductDetails({ params }) {
         timeout: 30000,
       });
       await connection.confirmTransaction(signature, "confirmed");
+      setTxnConfirmed(true);
       console.log("Transaction successful with signature:", signature);
       // alert('Transaction successful!');
     } catch (error) {
@@ -91,6 +93,30 @@ export default function ProductDetails({ params }) {
     setPrice(parseFloat(product.product_price));
   }, []);
 
+  useEffect(() => {
+    // Call generateNFTReq when src is available
+    if (src) {
+      fetch(src)
+        .then((res) => res.blob())
+        .then((blob) => {
+          const file = blobToFile(blob);
+          // console.log(file); // Here's your File object
+          // Now you can use this File object for further operations, like uploading to S3
+          setFiles([file]);
+          startUpload(files);
+        })
+        .catch((error) => console.error("Error:", error));
+    }
+    if (isUploading) {
+      console.log("Uploading");
+    }
+  }, [src]); // Trigger the effect whenever src changes
+
+  useEffect(() => {
+    if (imgUrl) {
+      generateNFTReq(imgUrl);
+    }
+  }, [imgUrl]);
   return (
     <div className="p-6">
       <section className="mb-6">
@@ -117,9 +143,7 @@ export default function ProductDetails({ params }) {
           </div>
           <div className="col-span-3 p-8 bg-white rounded-xl shadow-lg text-black">
             <div className="min-w-min">{product.product_description}</div>
-            <h2 className="text-2xl font-bold mt-4 text-black">
-              {product.product_price} SOL
-            </h2>
+            <h2 className="text-2xl font-bold mt-4 text-black">{product.product_price} SOL</h2>
             <div className="mt-4">
               <label htmlFor="quantity" className="mr-2">
                 Quantity:
@@ -138,7 +162,7 @@ export default function ProductDetails({ params }) {
               <Button
                 onClick={() => {
                   sendSol(price);
-                  setNftHash(Math.floor(Math.random() * 1000))
+                  setNftHash(Math.floor(Math.random() * 1000));
                   generateWaifuPic(setSrc);
                 }}>
                 Purchase
@@ -150,28 +174,24 @@ export default function ProductDetails({ params }) {
         <div>
           {src && (
             <>
-            <h1 className="py-4 text-4xl font-bold text-gray-900 dark:text-white font">
-          Mint your waifu
-        </h1>
-                    <Card
-          className="max-w-sm align-center"
-          imgAlt="Waifu"
-          imgSrc={src}>
-          <a href="#">
-            <h5 className="text-xl font-semibold tracking-tight text-gray-900 dark:text-white">
-              Waifu #{nftHash}
-            </h5>
-          </a>
-          <div className="flex items-center justify-between">
-            <span className="text-3xl font-bold text-gray-900 dark:text-white">
-              Claim Waifu
-            </span>
-            <div
-              className="rounded-lg bg-cyan-700 px-5 py-2.5 text-center text-sm font-medium text-white hover:bg-cyan-800 focus:outline-none focus:ring-4 focus:ring-cyan-300 dark:bg-cyan-600 dark:hover:bg-cyan-700 dark:focus:ring-cyan-800">
-              <NFTMinting />
-            </div>
-          </div>
-        </Card>
+              <h1 className="py-4 text-4xl font-bold text-gray-900 dark:text-white font">
+                Mint your waifu
+              </h1>
+              <Card className="max-w-sm align-center" imgAlt="Waifu" imgSrc={src}>
+                <a href="#">
+                  <h5 className="text-xl font-semibold tracking-tight text-gray-900 dark:text-white">
+                    Waifu #{nftHash}
+                  </h5>
+                </a>
+                <div className="flex items-center justify-between">
+                  <span className="text-3xl font-bold text-gray-900 dark:text-white">
+                    Claim Waifu
+                  </span>
+                  <div className="rounded-lg bg-cyan-700 px-5 py-2.5 text-center text-sm font-medium text-white hover:bg-cyan-800 focus:outline-none focus:ring-4 focus:ring-cyan-300 dark:bg-cyan-600 dark:hover:bg-cyan-700 dark:focus:ring-cyan-800">
+                    <NFTMinting />
+                  </div>
+                </div>
+              </Card>
             </>
           )}
         </div>
@@ -222,13 +242,9 @@ const RatingExample = function () {
         <Rating.Star />
         <Rating.Star />
         <Rating.Star filled={false} />
-        <p className="ml-2 text-sm font-medium text-gray-500 dark:text-gray-400">
-          4.1 out of 5
-        </p>
+        <p className="ml-2 text-sm font-medium text-gray-500 dark:text-gray-400">4.1 out of 5</p>
       </Rating>
-      <p className="text-sm font-medium text-gray-500 dark:text-gray-400">
-        190 ratings
-      </p>
+      <p className="text-sm font-medium text-gray-500 dark:text-gray-400">190 ratings</p>
       <Rating.Advanced percentFilled={17}>5 star</Rating.Advanced>
       <Rating.Advanced percentFilled={70}>4 star</Rating.Advanced>
       <Rating.Advanced percentFilled={8}>3 star</Rating.Advanced>

@@ -1,5 +1,5 @@
 // src/services/solanaService.js
-import * as solanaWeb3 from '@solana/web3.js';
+import * as solanaWeb3 from "@solana/web3.js";
 import {
   Metaplex,
   keypairIdentity,
@@ -8,15 +8,34 @@ import {
   toBigNumber,
 } from "@metaplex-foundation/js";
 // import * as fs from "fs";
-// import secret from "./guideSecret.json";
+import secret from "./guideSecret.json";
+import wallet from "./guideSecret.json";
+
+// We're going to import our keypair from the wallet file
+// put wallet variable in the bracket
+const keypair = solanaWeb3.Keypair.fromSecretKey(new Uint8Array(wallet));
+
+//Create a Solana devnet connection to devnet SOL tokens
+const devConnection = new solanaWeb3.Connection("https://api.devnet.solana.com");
+async function airdrop() {
+  try {
+    // We're going to claim 2 devnet SOL tokens
+    const txhash = await connection.requestAirdrop(
+      keypair.publicKey,
+      2 * solanaWeb3.LAMPORTS_PER_SOL
+    );
+    console.log(`Success! Check out your TX here:
+    https://explorer.solana.com/tx/${txhash}?cluster=devnet`);
+  } catch (e) {
+    console.error(`Oops, something went wrong: ${e}`);
+  }
+}
 
 const QUICKNODE_RPC =
-  "https://crimson-capable-daylight.solana-devnet.quiknode.pro/59063ba707783cfe415ba42e08858e330a9f5273/";
+  "https://cosmological-fabled-night.solana-devnet.quiknode.pro/20c9b7a0655b68d7c6b3b46c4be95d91a9a06763/";
 const SOLANA_CONNECTION = new solanaWeb3.Connection(QUICKNODE_RPC, "confirmed");
 //enter the secret key from guideSecret.json
-// const WALLET = solanaWeb3.Keypair.fromSecretKey(new Uint8Array());
-const WALLET = solanaWeb3.Keypair.generate();
-// const WALLET = solanaWeb3.Keypair.fromSecretKey(new Uint8Array(process.env.NEXT_PUBLIC_SECRET_KEY));
+const WALLET = solanaWeb3.Keypair.fromSecretKey(new Uint8Array(secret));
 
 const METAPLEX = Metaplex.make(SOLANA_CONNECTION)
   .use(keypairIdentity(WALLET))
@@ -30,40 +49,30 @@ const METAPLEX = Metaplex.make(SOLANA_CONNECTION)
 
 //CONFIGURATION. feel free to change the values
 const CONFIG = {
-  uploadPath: "uploads/",
-  imgFileName: "image.png",
-  imgType: "image/png",
-  imgName: "QuickNode Pixel",
-  description: "Pixel infrastructure for everyone!",
+  imgType: "image/jpeg",
+  imgName: "Sol EcoWaifu",
+  description: "Waifu",
   attributes: [
     { trait_type: "Speed", value: "Quick" },
     { trait_type: "Type", value: "Pixelated" },
-    { trait_type: "Background", value: "QuickNode Blue" },
+    { trait_type: "Background", value: "Transparent" },
   ],
   sellerFeeBasisPoints: 500, //500 bp = 5%
-  symbol: "QNPIX",
+  symbol: "SEW",
   creators: [{ address: WALLET.publicKey, share: 100 }],
 };
 
-async function uploadImage(
-  filePath,
-  fileName
-) {
+async function uploadImage(imgBuffer, fileName) {
   console.log(`Step 1 - Uploading Image`);
-  const imgBuffer = fs.readFileSync(filePath + fileName);
+  // const imgBuffer = fs.readFileSync(filePath + fileName);
+
   const imgMetaplexFile = toMetaplexFile(imgBuffer, fileName);
   const imgUri = await METAPLEX.storage().upload(imgMetaplexFile);
   console.log(`   Image URI:`, imgUri);
   return imgUri;
 }
 
-async function uploadMetadata(
-  imgUri,
-  imgType,
-  nftName,
-  description,
-  attributes
-) {
+async function uploadMetadata(imgUri, imgType, nftName, description, attributes) {
   console.log(`Step 2 - Uploading Metadata`);
   const { uri } = await METAPLEX.nfts().uploadMetadata({
     name: nftName,
@@ -83,13 +92,7 @@ async function uploadMetadata(
   return uri;
 }
 
-async function mintNft(
-  metadataUri,
-  name,
-  sellerFee,
-  symbol,
-  creators
-) {
+async function mintNft(metadataUri, name, sellerFee, symbol, creators) {
   console.log(`Step 3 - Minting NFT`);
   const { nft } = await METAPLEX.nfts().create({
     uri: metadataUri,
@@ -100,14 +103,11 @@ async function mintNft(
     isMutable: false,
   });
   console.log(`   Success!🎉`);
-  console.log(
-    `   Minted NFT: https://explorer.solana.com/address/${nft.address}?cluster=devnet`
-  );
+  console.log(`   Minted NFT: https://explorer.solana.com/address/${nft.address}?cluster=devnet`);
 }
 
 // Setup connection
-const connection = new solanaWeb3.Connection(solanaWeb3.clusterApiUrl('devnet'), 'confirmed');
-
+const connection = new solanaWeb3.Connection(solanaWeb3.clusterApiUrl("devnet"), "confirmed");
 
 // Adjust your interactWithContract function to accept a signer directly
 export const interactWithContract = async (signer, programIdString, instructionData) => {
@@ -123,11 +123,7 @@ export const interactWithContract = async (signer, programIdString, instructionD
   transaction.add(instruction);
 
   try {
-    let signature = await solanaWeb3.sendAndConfirmTransaction(
-      connection,
-      transaction,
-      [signer]
-    );
+    let signature = await solanaWeb3.sendAndConfirmTransaction(connection, transaction, [signer]);
     return signature;
   } catch (error) {
     console.error("Error sending transaction:", error);
@@ -135,10 +131,9 @@ export const interactWithContract = async (signer, programIdString, instructionD
   }
 };
 
-
-export const interactForNFT = async () => {
-    //Step 1 - Upload Image
-  const imgUri = await uploadImage(CONFIG.uploadPath, CONFIG.imgFileName);
+export const interactForNFT = async (imgBuffer, fileName) => {
+  //Step 1 - Upload Image
+  const imgUri = await uploadImage(imgBuffer, fileName);
   //Step 2 - Upload Metadata
   const metadataUri = await uploadMetadata(
     imgUri,
@@ -147,6 +142,7 @@ export const interactForNFT = async () => {
     CONFIG.description,
     CONFIG.attributes
   );
+
   //Step 3 - Mint NFT
   mintNft(
     metadataUri,
@@ -155,4 +151,4 @@ export const interactForNFT = async () => {
     CONFIG.symbol,
     CONFIG.creators
   );
-}
+};
