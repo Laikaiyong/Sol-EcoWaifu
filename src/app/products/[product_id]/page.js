@@ -26,7 +26,7 @@ export default function ProductDetails({ params }) {
 
   const { startUpload, isUploading } = useUploadThing("imageUploader", {
     onClientUploadComplete: (res) => {
-      alert("uploaded successfully!");
+      console.log("uploaded successfully!");
 
       setImgUrl(res[0].url);
     },
